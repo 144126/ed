@@ -25,12 +25,21 @@
 
 	const skills = [
 		{
+			cat: 'Core Expertise',
+			items: [
+				{ name: 'SvelteKit', level: 'Expert', years: 6 },
+				{ name: 'Python', level: 'Intermediate', years: 9 },
+				{ name: 'TypeScript', level: 'Intermediate', years: 6 },
+				{ name: 'Rust', level: 'Intermediate', years: 4 }
+			]
+		},
+		{
 			cat: 'Frontend',
-			items: ['SvelteKit', 'SvelteJS', 'React', 'TypeScript', 'Tailwind CSS', 'Carbon Components', 'Material UI']
+			items: ['SvelteJS', 'React', 'Tailwind CSS', 'Carbon Components', 'Material UI']
 		},
 		{
 			cat: 'Backend',
-			items: ['Node.js', 'Python', 'Rust', 'PostgreSQL', 'MongoDB', 'Redis', 'Supabase', 'REST APIs', 'WebSockets', 'Deno']
+			items: ['Node.js', 'PostgreSQL', 'MongoDB', 'Redis', 'Supabase', 'REST APIs', 'WebSockets', 'Deno']
 		},
 		{ cat: 'Cloud & DevOps', items: ['AWS (Lightsail, EC2)', 'Docker', 'GitHub Actions', 'CI/CD', 'Serverless', 'Cloudflare', 'Vercel', 'Netlify'] },
 		{ cat: 'Architecture & Tooling', items: ['API Design', 'Microservices', 'CLI Tools', 'NPM Packages'] },
@@ -168,9 +177,20 @@
 					<h3 class="font-mono text-sm uppercase tracking-[0.08em] mb-4" style="color: var(--color-accent);">{s.cat}</h3>
 					<div class="flex flex-wrap gap-2">
 						{#each s.items as item}
-							<span class="font-mono text-xs px-2 py-1" style="border: 1px solid var(--color-border); color: var(--color-fg-secondary);">
-								{item}
-							</span>
+							{#if typeof item === 'object'}
+								<div class="font-mono text-xs px-2 py-1.5 min-w-[140px]" style="border: 1px solid var(--color-border); color: var(--color-fg-secondary);">
+									<div class="font-medium" style="color: var(--color-fg);">{item.name}</div>
+									<div class="flex items-center gap-1.5 mt-0.5" style="color: var(--color-fg-muted);">
+										<span>{item.level}</span>
+										<span>·</span>
+										<span>{item.years}yr</span>
+									</div>
+								</div>
+							{:else}
+								<span class="font-mono text-xs px-2 py-1" style="border: 1px solid var(--color-border); color: var(--color-fg-secondary);">
+									{item}
+								</span>
+							{/if}
 						{/each}
 					</div>
 				</div>
