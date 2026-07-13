@@ -47,7 +47,7 @@ export const projects = [
 		title: 'BEEE Spectacular Chess Championship',
 		desc: 'Tournament registration platform for Abuja 2026 inter-school chess championship. Team registration with Paystack payment processing, Qdrant vector DB backend, Cloudflare deployment, and Google Gemini AI chess coach.',
 		tags: ['SvelteKit', 'Paystack', 'Qdrant', 'Cloudflare', 'Gemini AI'],
-		url: 'https://beee.apexlinks.org',
+		url: 'https://beeeproject.com',
 		github: 'https://github.com/angelwingscomms/beee'
 	},
 	{

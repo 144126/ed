@@ -96,3 +96,5 @@ https://svelte.dev/e/element_invalid_self_closing_tag
 8:15:45 AM [vite] (client) page reload .svelte-kit/generated/root.js
 8:15:45 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
 8:15:45 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
+8:18:07 AM [vite] (client) hmr update /src/routes/+page.svelte, /src/routes/layout.css
+8:18:07 AM [vite] (ssr) page reload src/lib/data.ts
