@@ -37,6 +37,13 @@ export const skills = [
 
 export const projects = [
 	{
+		title: 'calm — resume theme',
+		desc: 'Published JSON Resume theme that fits any résumé on one A4 page, sizing its own type between 6.8pt and 10.4pt to whatever you wrote. The site renders any GitHub user\'s resume.json gist in the browser — no server, so the API rate limit stays with the visitor.',
+		tags: ['npm Package', 'JSON Resume', 'Cloudflare Workers', 'Print CSS'],
+		url: 'https://calm.apexlinks.org',
+		github: 'https://github.com/144126/jsonresume-theme-calm'
+	},
+	{
 		title: 'ApexLinks',
 		desc: 'SvelteKit platform to list businesses, products, and services. Features AI-powered vector search for blogs/listings and an integrated AI resume builder that autonomously generates complete content and styling.',
 		tags: ['SvelteKit', 'Qdrant', 'AI', 'Vector Search'],
