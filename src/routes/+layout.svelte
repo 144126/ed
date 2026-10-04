@@ -46,10 +46,10 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Gold Edem Hogan — SvelteKit Architect & Edge Engineer</title>
-	<meta name="description" content="Gold Edem Hogan builds fast, brutalist web experiences with SvelteKit, Rust, WASM, AI/vector search, and algorithmic trading systems. Based in Lagos." />
-	<meta property="og:title" content="Gold Edem Hogan — SvelteKit Architect & Edge Engineer" />
-	<meta property="og:description" content="Fast, brutalist web experiences. SvelteKit, Rust, WASM, AI/vector search, algorithmic trading." />
+	<title>Gold Edem Hogan — design & code</title>
+	<meta name="description" content="Logos, identities, print and motion by Gold Edem Hogan, plus the SvelteKit, Rust and AI web apps that ship them." />
+	<meta property="og:title" content="Gold Edem Hogan — design & code" />
+	<meta property="og:description" content="Logos, identities, print and motion, plus SvelteKit, Rust and AI web apps." />
 	<meta property="og:type" content="website" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>

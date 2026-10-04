@@ -37,18 +37,11 @@ export const skills = [
 
 export const projects = [
 	{
-		title: 'calm — resume theme',
-		desc: 'Published JSON Resume theme that fits any résumé on one A4 page, sizing its own type between 6.8pt and 10.4pt to whatever you wrote. The site renders any GitHub user\'s resume.json gist in the browser — no server, so the API rate limit stays with the visitor.',
-		tags: ['npm Package', 'JSON Resume', 'Cloudflare Workers', 'Print CSS'],
-		url: 'https://calm.apexlinks.org',
-		github: 'https://github.com/144126/jsonresume-theme-calm'
-	},
-	{
-		title: 'ApexLinks',
-		desc: 'SvelteKit platform to list businesses, products, and services. Features AI-powered vector search for blogs/listings and an integrated AI resume builder that autonomously generates complete content and styling.',
-		tags: ['SvelteKit', 'Qdrant', 'AI', 'Vector Search'],
-		url: 'https://apexlinks.org',
-		github: 'https://github.com/angelwingscomms/i'
+		title: 'x2',
+		desc: 'Real-time social app: a public board where posts carry your name or go anonymous, plus rooms and DMs with reactions, stickers, voice and video calls, push notifications, and streaming AI threads. Random voice match pairs strangers by interest using embeddings.',
+		tags: ['SvelteKit', 'Cloudflare Workers', 'Durable Objects', 'WebRTC', 'Qdrant', 'AI SDK'],
+		url: 'https://x2.apexlinks.org',
+		github: 'https://github.com/144126/x2'
 	},
 	{
 		title: 'BEEE Spectacular Chess Championship',
@@ -93,23 +86,9 @@ export const projects = [
 		github: 'https://github.com/angelwingscomms/stuff'
 	},
 	{
-		title: 'UdoFlow',
-		desc: 'AI agency website in SvelteKit. Features an AI chatbot that saves visitor chats to the database for session resumption.',
-		tags: ['SvelteKit', 'AI', 'Chatbot'],
-		url: null,
-		github: null
-	},
-	{
 		title: 'Report Card Management Webapp',
 		desc: 'School management system backed by Qdrant and SvelteKit. Enables teachers to log student scores, auto-computes final pass/fail grades, and generates comprehensive PDF report cards.',
 		tags: ['SvelteKit', 'Qdrant', 'PDF Generation', 'Education'],
-		url: null,
-		github: null
-	},
-	{
-		title: 'Travel Ticketing WebApp',
-		desc: 'React-based flight booking UI allowing users to input travel dates and select their preferred plane and seats (TIIDELab team project).',
-		tags: ['React', 'Team Project', 'Booking UI'],
 		url: null,
 		github: null
 	},

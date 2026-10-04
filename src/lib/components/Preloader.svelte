@@ -10,7 +10,7 @@
 	const lines = [
 		'> initializing ed.portfolio',
 		'> loading stack ................ svelte · rust · ai',
-		'> compiling shaders ............ ok',
+		'> hanging the work ............. 26 pieces',
 		'> deploy target ............... cloudflare edge',
 		'> ready_'
 	];
