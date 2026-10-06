@@ -52,28 +52,28 @@
 	onclick={handleOverlayClick}
 	onkeydown={handleKey}
 	role="dialog"
-	aria-label="Project preview"
+	aria-label="site preview"
 	tabindex="-1"
 >
 	<div
 		bind:this={panel}
 		class="relative flex h-full w-full flex-col"
-		style="max-width: 1200px; max-height: 90vh; background-color: var(--color-bg); border: 1px solid var(--color-border);"
+		style="max-width: 1200px; max-height: 90vh; background-color: var(--color-bg); border: 1px solid var(--color-border); border-radius: 1.5rem; overflow: hidden;"
 	>
 		<div class="flex items-center justify-between px-4 py-3" style="border-bottom: 1px solid var(--color-border);">
 			<div class="flex items-center gap-3">
-				<a href={url} target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-[0.08em] no-underline" style="color: var(--color-accent);">
-					Open in new tab →
+				<a href={url} target="_blank" rel="noopener noreferrer" class="text-sm no-underline" style="color: var(--color-accent);">
+					open in new tab →
 				</a>
 				{#if loading}
-					<div class="font-mono text-xs" style="color: var(--color-fg-muted);">> loading {url} …</div>
+					<div class="text-sm" style="color: var(--color-fg-muted);">loading…</div>
 				{/if}
 			</div>
 			<button
-				class="font-mono text-xs uppercase tracking-[0.08em] cursor-pointer"
+				class="text-sm cursor-pointer"
 				style="color: var(--color-fg-muted); background: none; border: none;"
 				onclick={close}
-			>Close [Esc]</button>
+			>close (esc)</button>
 		</div>
 		<iframe
 			bind:this={iframeEl}

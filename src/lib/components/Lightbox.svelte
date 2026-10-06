@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { gsap, usesReducedMotion } from '$lib/motion';
 	import type { piece } from '$lib/design';
+	import { p } from '$lib/data';
 
 	let { list, at = $bindable(), from, onclose }: { list: piece[]; at: number; from: DOMRect | null; onclose: () => void } = $props();
 
@@ -67,9 +68,9 @@
 <svelte:window onkeydown={key} />
 
 <div bind:this={shell} class="lb fixed inset-0 z-[60] flex flex-col" role="dialog" aria-modal="true" aria-label={pc.t}>
-	<div class="flex items-center justify-between px-4 md:px-8 py-4 font-mono text-xs uppercase tracking-[0.08em]" style="color: var(--color-fg-muted);">
-		<span>{String(at + 1).padStart(2, '0')} / {list.length} · {pc.k}</span>
-		<button class="cursor-pointer link-draw uppercase" style="color: var(--color-fg-secondary);" onclick={close}>close [esc]</button>
+	<div class="flex items-center justify-between px-4 md:px-8 py-4 text-sm" style="color: var(--color-fg-muted);">
+		<span>{at + 1} / {list.length}</span>
+		<button class="cursor-pointer rounded-full border px-4 py-2" style="color: var(--color-fg-secondary);" onclick={close}>close (esc)</button>
 	</div>
 
 	<div
@@ -81,9 +82,9 @@
 	>
 		{#key slide.src}
 			{#if 'v' in slide}
-				<video src={slide.src} class="max-w-full max-h-full" autoplay loop muted playsinline controls></video>
+				<video src={slide.src} class="max-w-full max-h-full rounded-2xl" autoplay loop muted playsinline controls></video>
 			{:else}
-				<img src={slide.src} alt="{pc.t}, {n + 1} of {slides.length}" width={slide.w} height={slide.h} class="max-w-full max-h-full w-auto h-auto" draggable="false" />
+				<img src={slide.src} alt="{pc.t}, {n + 1} of {slides.length}" width={slide.w} height={slide.h} class="max-w-full max-h-full w-auto h-auto rounded-2xl" draggable="false" />
 			{/if}
 		{/key}
 		<button class="nav-btn left-2 md:left-6" aria-label="previous" onclick={() => show(-1)}>←</button>
@@ -92,22 +93,25 @@
 
 	<div class="grid md:grid-cols-12 gap-4 md:gap-8 items-end px-4 md:px-8 pt-6 pb-6 md:pb-8">
 		<div class="md:col-span-7 overflow-hidden">
-			<h3 data-lb-text class="font-mono font-light leading-[1] tracking-[-0.03em]" style="font-size: clamp(1.75rem, 4vw, 3.25rem); color: var(--color-fg);">{pc.t}</h3>
+			<h3 data-lb-text class="font-medium leading-[1] tracking-[-0.04em]" style="font-size: clamp(1.75rem, 4vw, 3.25rem); color: var(--color-fg);">{pc.t}</h3>
 			<p data-lb-text class="mt-3 max-w-xl" style="color: var(--color-fg-secondary); line-height: 1.6;">{pc.d}</p>
 		</div>
-		<div data-lb-text class="md:col-span-5 flex md:justify-end gap-2 flex-wrap">
+		<div data-lb-text class="md:col-span-5 flex flex-col md:items-end gap-4">
+			<a href="{p.whatsapp}?text={encodeURIComponent(`hi gold, i found you on ed.apexlinks.org. i want something like "${pc.t}" for my business.`)}" target="_blank" rel="noopener noreferrer" class="pill pill-gold self-start md:self-end">want one like this? →</a>
+			<div class="flex md:justify-end gap-2 flex-wrap">
 			{#each slides as s, j}
 				<button class="dot cursor-pointer" class:on={j === n} aria-label="view {j + 1}" onclick={() => (n = j)}>
 					{#if 'v' in s}<span class="font-mono text-[0.625rem]">▶</span>{:else}<img src={s.src} alt="" loading="lazy" />{/if}
 				</button>
 			{/each}
+			</div>
 		</div>
 	</div>
 </div>
 
 <style>
 	.lb {
-		background: rgba(6, 9, 15, 0.97);
+		background: rgba(11, 10, 8, 0.97);
 		backdrop-filter: blur(10px);
 	}
 	.nav-btn {
@@ -119,7 +123,8 @@
 		font-family: var(--font-mono);
 		color: var(--color-fg-secondary);
 		border: 1px solid var(--color-border);
-		background: rgba(10, 14, 23, 0.6);
+		background: rgba(11, 10, 8, 0.6);
+		border-radius: 999px;
 		cursor: pointer;
 		transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
 	}
@@ -133,6 +138,7 @@
 		border: 1px solid var(--color-border);
 		overflow: hidden;
 		opacity: 0.45;
+		border-radius: 0.75rem;
 		display: grid;
 		place-items: center;
 		color: var(--color-fg);

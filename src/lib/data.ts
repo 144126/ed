@@ -1,9 +1,9 @@
 export const p = {
 	name: 'Gold Edem Hogan',
-	title: 'Full-Stack Web Developer',
-	tagline: 'SvelteKit, Rust, AI & Cloud Deployments',
+	title: 'graphic designer & web developer',
 	email: '1440fl@gmail.com',
-	phone: '+2348118718106',
+	phone: '+234 811 871 8106',
+	whatsapp: 'https://wa.me/2348118718106',
 	github: 'https://github.com/144126',
 	org: 'https://github.com/angelwingscomms',
 	location: 'Nigeria',

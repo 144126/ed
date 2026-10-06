@@ -72,20 +72,18 @@
 		justify-content: center;
 		transition: width 0.2s, height 0.2s, background-color 0.2s;
 	}
-	.cursor-ring.is-active {
+	.cursor-ring:global(.is-active) {
 		width: 60px;
 		height: 60px;
 		margin-left: -30px;
 		margin-top: -30px;
-		background-color: rgba(212,160,71,0.1);
+		background-color: rgba(226,182,92,0.12);
 	}
 	.cursor-label {
-		font-family: var(--font-mono);
-		font-size: 0.625rem;
+		font-size: 0.6875rem;
 		letter-spacing: 0.08em;
 		color: var(--color-accent);
 		display: none;
-		text-transform: uppercase;
 		white-space: nowrap;
 	}
 	.cursor-dot {

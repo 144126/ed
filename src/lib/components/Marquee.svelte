@@ -59,7 +59,7 @@
 		border-top: 1px solid var(--color-border);
 		border-bottom: 1px solid var(--color-border);
 		padding: 1rem 0;
-		margin: 2rem 0;
+		margin: 0;
 		overflow: hidden;
 		width: 100%;
 	}
@@ -68,19 +68,20 @@
 		gap: 2rem;
 		white-space: nowrap;
 		width: fit-content;
-		font-family: var(--font-mono);
-		font-size: clamp(2rem, 6vw, 4rem);
+		font-weight: 500;
+		letter-spacing: -0.04em;
+		font-size: clamp(2rem, 6vw, 4.5rem);
 		line-height: 1.2;
 		padding: 0.25rem 0;
 	}
 	.marquee-row-reverse {
 		direction: rtl;
 	}
-	.marquee-item {
+	:global(.marquee-item) {
 		color: var(--color-fg);
 		flex-shrink: 0;
 	}
-	.marquee-item.is-gold {
+	:global(.marquee-item.is-gold) {
 		color: var(--color-accent);
 	}
 	@media (prefers-reduced-motion: reduce) {
