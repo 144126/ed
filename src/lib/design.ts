@@ -37,13 +37,11 @@ export const work: piece[] = [
 	{ s: 'clay', t: 'clay towel', k: 'packaging', d: 'set 1:1 on the factory dieline. the dark car wraps from front to sides.', i: [[2000, 1986], [1500, 2000], [1311, 2000]] },
 	{ s: 'bluehour', t: 'lights on at blue hour', k: 'illustration', d: 'a family home painted the moment the lamps come on.', i: [[2000, 1500], [760, 950]] },
 	{ s: 'cpprsj', t: 'racial & social justice center', k: 'logo', d: 'curved bands bend toward justice. logo plus a one-page style sheet.', i: [[2000, 2000], [1600, 2000]] },
-	{ s: 'aftermath', t: 'aftermath roofing', k: 'identity', d: 'clean vector rebuild plus the full print kit: cards, yard signs, brand sheet.', i: [[2000, 1400], [2000, 1167], [2000, 1333], [1538, 2000]] },
 	{ s: 'tachyra', t: 'tachyra diagnostics tee', k: 'apparel', d: 'traced ecg logo on the front, a cartoon physician and a bold url on the back.', i: [[2000, 1600], [1254, 1254]] },
 	{ s: 'codepulse', t: 'codepulse.pro', k: 'logo', d: 'a cursor split into three aligned layers: coding agents working as one.', i: [[1600, 1600], [1600, 1600], [1200, 1600]] },
 	{ s: 'journal', t: 'the favor of god journal', k: 'print', d: 'five a4 guided journal pages, fillable, set for home printing.', i: [[1241, 1754], [2000, 628], [1241, 1754]] },
 	{ s: 'church', t: 'church mark', k: 'logo', d: 'an open book whose pages fan out like light, under one cross.', i: [[2000, 2000], [2000, 697], [2000, 1500]] },
 	{ s: 'playe', t: 'playe money', k: 'logo', d: 'a pinwheel is a p on a stick. one breath sets it spinning.', i: [[2000, 1333]] },
-	{ s: 'laura', t: 'laura a wilson photography', k: 'logo', d: 'every family date engraved on the lens ring, like real lens markings.', i: [[2000, 2000]] },
 	{ s: 'homefront', t: 'homefront counseling', k: 'identity', d: 'an h that is also a doorway. the hard stuff has a place.', i: [[1600, 1600], [2000, 1333], [2000, 1333], [2000, 2000]], o: [3, 0, 1, 2] },
 	{ s: 'beyond', t: 'beyond boundaries youth', k: 'logo', d: 'the black chevron is the mentor. the blue one breaks through the line.', i: [[2000, 1500]] },
 	{ s: 'sheedy', t: 'sheedy academy', k: 'logo', d: 'two monograms for a sports academy, with the ball in the letters.', i: [[1600, 1600], [1600, 1600], [1200, 1600]] },
@@ -53,7 +51,6 @@ export const work: piece[] = [
 	{ s: 'prohab', t: 'prohab', k: 'identity', d: 'one mark, four sub-brands, four colours.', i: [[1800, 1800]] },
 	{ s: 'mca', t: '@makeMCAgreatagain', k: 'logo', d: 'the a in mca is a play button turned upward: rising.', i: [[1800, 1200]] },
 	{ s: 'hated', t: 'hated forever', k: 'motion', d: 'key art for a 4k loop: a horde party crossing the barrens at twilight.', i: [[1942, 809]] },
-	{ s: 'diwali', t: '5ab homes · diwali', k: 'print', d: 'billboard banner. together in the light: one diya, one family, no sales message.', i: [[1920, 1080]] },
 	{ s: 'staging', t: 'virtual staging', k: 'illustration', d: 'empty rooms, furnished and lit.', i: [[2000, 1333], [2000, 1333], [2000, 1333]] }
 ];
 
