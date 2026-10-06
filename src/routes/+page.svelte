@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { p } from '$lib/data';
+	import type { PageProps } from './$types';
 	import { gsap, ScrollTrigger, SplitText, usesReducedMotion } from '$lib/motion';
-	import { work, kinds, prices, type piece } from '$lib/design';
+	import { work, kinds, prices, site_price, money, type piece } from '$lib/design';
+
+	let { data }: PageProps = $props();
 	import Lightbox from '$lib/components/Lightbox.svelte';
 	import Marquee from '$lib/components/Marquee.svelte';
 	import Modal from '$lib/components/Modal.svelte';
@@ -133,7 +136,7 @@
 				flyers, posters and logos. first draft in <span class="text-accent">24 hours.</span>
 			</h1>
 			<p data-hero class="mt-7 max-w-xl text-lg leading-relaxed text-fg-secondary">
-				i’m gold, a graphic designer. send me your text and your deadline. you get clean, print-ready files you own, from $25.
+				i’m gold, a graphic designer. send me your text and your deadline. you get clean, print-ready files you own, from {money(prices[0], data.g)}.
 			</p>
 			<div data-hero class="mt-9 flex flex-wrap gap-3">
 				<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>message me on whatsapp</a>
@@ -209,7 +212,7 @@
 				<p class="label mb-4">02 · prices</p>
 				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">clear prices. no surprises.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">starting prices in usd. you get a fixed quote for your exact job before anything starts.</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">starting prices in {data.g ? 'naira' : 'usd'}. you get a fixed quote for your exact job before anything starts.</p>
 		</div>
 		<div class="grid gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3" use:reveal={{ selector: '> *', stagger: 0.06 }}>
 			{#each prices as x (x.t)}
@@ -217,7 +220,7 @@
 					<span class="text-lg text-fg">{x.t}</span>
 					<span class="mt-6 flex items-baseline gap-2">
 						<span class="text-sm text-fg-muted">from</span>
-						<span class="text-5xl font-medium tracking-[-0.04em] text-accent">${x.f}</span>
+						<span class="text-5xl font-medium tracking-[-0.04em] text-accent">{money(x, data.g)}</span>
 					</span>
 					<span class="mt-4 leading-relaxed text-fg-secondary">{x.d}</span>
 					<span class="mt-8 text-sm text-fg-muted transition-colors group-hover:text-accent">start this →</span>
@@ -289,7 +292,7 @@
 				<p class="label mb-4">05 · websites</p>
 				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">i also build the website.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">6 years building fast web apps with sveltekit. live sites below. websites start from $300.</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">6 years building fast web apps with sveltekit. live sites below. websites start from {money(site_price, data.g)}.</p>
 		</div>
 		<div class="grid gap-3 md:grid-cols-3 md:gap-4" use:reveal={{ selector: '> *', stagger: 0.08 }}>
 			{#each sites as x (x.t)}

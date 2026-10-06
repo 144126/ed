@@ -33,9 +33,9 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>gold hogan · flyers, posters & logos in 24 hours</title>
-	<meta name="description" content="flyers, posters, logos and brand kits by gold hogan. first draft in 24 hours, flyers from $25, print-ready files you own. 41 real designs to look through." />
+	<meta name="description" content="flyers, posters, logos and brand kits by gold hogan. first draft in 24 hours, cheap flyers, print-ready files you own. 41 real designs to look through." />
 	<meta property="og:title" content="gold hogan · flyers, posters & logos in 24 hours" />
-	<meta property="og:description" content="first draft in 24 hours. flyers from $25. 41 real designs to look through." />
+	<meta property="og:description" content="first draft in 24 hours. flyers, posters and logos at small-business prices. 41 real designs to look through." />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://ed.apexlinks.org" />
 </svelte:head>

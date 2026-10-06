@@ -47,12 +47,18 @@ export const work: piece[] = [
 	{ s: 'staging', t: 'virtual staging', k: 'illustration', d: 'empty rooms, furnished and lit.', i: [[2000, 1333], [2000, 1333], [2000, 1333]] }
 ];
 
-// t = service, f = starting price in usd, d = what you get
+// t = service, u = starting price in usd, n = starting price in naira, d = what you get
 export const prices = [
-	{ t: 'flyer or poster', f: 25, d: 'one design, print-ready pdf + png, sized for print or instagram.' },
-	{ t: 'social media pack', f: 40, d: '5 posts or stories in one look, ready to upload.' },
-	{ t: 'logo', f: 49, d: '2 concepts, the winner in full colour, one-colour and reversed. svg, pdf, png.' },
-	{ t: 'brand kit', f: 120, d: 'logo plus colours, fonts, business card and a one-page guide.' },
-	{ t: 'label or packaging', f: 60, d: 'set 1:1 on your printer’s dieline, with bleed.' },
-	{ t: 't-shirt or merch', f: 30, d: 'front and back art, vector, separated for screen print.' }
+	{ t: 'flyer or poster', u: 6, n: 9000, d: 'one design, print-ready pdf + png, sized for print or instagram.' },
+	{ t: 'social media pack', u: 9, n: 13500, d: '5 posts or stories in one look, ready to upload.' },
+	{ t: 'logo', u: 12, n: 18000, d: '2 concepts, the winner in full colour, one-colour and reversed. svg, pdf, png.' },
+	{ t: 'brand kit', u: 27, n: 36000, d: 'logo plus colours, fonts, business card and a one-page guide.' },
+	{ t: 'label or packaging', u: 14, n: 18000, d: 'set 1:1 on your printer’s dieline, with bleed.' },
+	{ t: 't-shirt or merch', u: 7, n: 9000, d: 'front and back art, vector, separated for screen print.' }
 ];
+
+export const site_price = { u: 63, n: 90000 };
+
+export function money(x: { u: number; n: number }, ng: boolean) {
+	return ng ? `₦${x.n.toLocaleString('en-NG')}` : `$${x.u}`;
+}
