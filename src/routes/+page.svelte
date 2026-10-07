@@ -13,9 +13,9 @@
 
 	// t = name, u = live url, d = one line
 	const sites = [
-		{ t: 'x2', u: 'https://x2.apexlinks.org', d: 'a real-time social app: posts, rooms, dms, voice and video calls.' },
-		{ t: 'beee chess championship', u: 'https://beeeproject.com', d: 'school sign-ups and payments for an inter-school chess tournament.' },
-		{ t: 'e4 chess coach', u: 'https://e4.apexlinks.org', d: 'a free chess coach that explains every move, from zero.' }
+		{ t: 'y2', u: 'https://y2.apexlinks.org', d: 'my own real-time social app: posts, rooms, dms, voice and video calls.' },
+		{ t: 'beee chess championship', u: 'https://beeeproject.com', d: 'sign-ups and payments for an inter-school chess tournament in abuja.' },
+		{ t: 'e4 chess coach', u: 'https://e4.apexlinks.org', d: 'my own free chess coach. it explains every move, from zero.' }
 	];
 	const fan = ['udens', 'e4', 'beee'].map((s) => work.find((w) => w.s === s)!);
 
@@ -27,9 +27,9 @@
 	];
 
 	const faqs = [
-		['what files do i get?', 'a print-ready pdf with bleed, png or jpg for social, and the source file (svg, ai or figma). logos also come in one-colour and reversed versions.'],
+		['what files do i get?', 'a print-ready pdf, png or jpg for social, and the source file (svg, illustrator or figma). logos also come in colour, black and white versions.'],
 		['can you work from my sketch or an old logo?', 'yes. send a photo of the sketch, a screenshot or a blurry old file. i redraw it as clean vector, not a trace.'],
-		['do you use ai?', 'sometimes, for ideas and photo backgrounds, and i say so when i do. logos and type are built by hand as editable vector.'],
+		['do you use ai?', 'yes, for mockup photos and some pictures, and every piece that used it says so. logos and type are built by hand as editable vector.'],
 		['do you print?', 'no. you get files your local printer or an online printer can use straight away. i size them to your printer’s specs.'],
 		['what if i don’t like the first draft?', 'tell me what feels off, even in plain words like “too busy” or “more fun”. that is what the two rounds of changes are for.']
 	];
@@ -185,7 +185,7 @@
 		</div>
 	</section>
 
-	<Marquee items={['flyers', 'event posters', 'logos', 'menus', 'labels', 'brand kits', 'social posts', 't-shirts', 'packaging', 'signage']} />
+	<Marquee items={['flyers', 'logos', 'brand kits', 'websites', 'labels', 'packaging', 't-shirts', 'social posts', 'menus', 'signage']} />
 
 	<section id="work" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="mb-10 grid items-end gap-6 md:grid-cols-12" use:reveal>
@@ -352,7 +352,7 @@
 			</h2>
 			<div class="mt-10 flex flex-wrap justify-center gap-3">
 				<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>whatsapp {p.phone}</a>
-				<a href="mailto:{p.email}" class="pill pill-ghost" use:magnetic={0.2}>{p.email}</a>
+				<a href="mailto:{p.email}" class="pill pill-ghost" use:magnetic={0.2}>email me</a>
 			</div>
 			<p class="mt-8 flex items-center justify-center gap-2.5 text-sm text-fg-muted">
 				<span class="live-dot"></span>it’s {clock || '—'} for me (wat, utc+1)
@@ -364,8 +364,6 @@
 <footer class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-4 px-4 pb-10 text-sm text-fg-muted md:px-8">
 	<p>© {new Date().getFullYear()} gold edem hogan</p>
 	<div class="flex gap-6">
-		<a class="hover:text-accent transition-colors" href={p.github} target="_blank" rel="noopener noreferrer">github</a>
-		<a class="hover:text-accent transition-colors" href="https://calm.apexlinks.org/144126" target="_blank" rel="noopener noreferrer">resume</a>
 		<a class="hover:text-accent transition-colors" href="#work">back to the work ↑</a>
 	</div>
 </footer>
