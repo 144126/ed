@@ -1,0 +1,84 @@
+{
+	"_": "repo ~/i/ed is gold hogan's portfolio, live at ed.apexlinks.org. stack: sveltekit (next), svelte 5 runes, tailwind 4, cloudflare workers adapter, pnpm, node 24.\ngoal: every piece on the work wall gets its own page at /work/{s} with its own share preview, and watch worthy films joins the wall. ed sends ed.apexlinks.org/work/watch-worthy to a client on reddit.\nsettled, do not revisit:\n- the url is /work/{s}, s = the piece's slug in `work` in src/lib/design.ts. images stay at static/work/{s}-{n}.webp and {s}-t.webp; the suffix keeps them clear of the route.\n- data.g (visitor is in nigeria) lives in src/routes/+layout.server.ts so every page has it. true = whatsapp and naira, false = email and usd.\n- every page owns its <svelte:head>. the layout keeps only the favicon.\n- the piece page reuses classes that already exist in src/routes/layout.css and src/routes/+page.svelte (pill pill-gold, pill pill-ghost, text-fg, text-fg-secondary, text-fg-muted, border-border, rounded-[var(--radius-tile)]). no new css file, no new tokens.\ncopy: every user-facing string is given verbatim in its step. never write your own copy. all lowercase, no emoji, ’ for apostrophes.\nfiles: src/lib/design.ts (work, kinds, prices, money), src/lib/data.ts (p = contact info, read only), src/routes/+page.svelte (home), src/routes/+page.server.ts (data.g today), src/routes/+layout.svelte (head today), src/lib/components/Lightbox.svelte (the piece overlay).\ncode rules: snake_case. single-letter keys get a comment at their definition. no new comments except a non-obvious why. no single-use variables. pnpm only, never npm or npx.\ntraps: pnpm check type-checks build output and its wrangler types --check needs that output, so gates run svelte-check on a clean tree, then build. pnpm lint was red before this plan: never reformat a file or fix unrelated lint. a dev server may already run: check `ss -ltnp | grep 9270` and tail .log, reuse it, start `pnpm dev` only if none runs. it listens on [::1], so open http://localhost:9270, not 127.0.0.1. /?c=ng and /?c=us preview each country. look at pages with ab-1440fl (headless agent-browser): open, snapshot -i, screenshot to an absolute path.\nafter each mark: commit only that step's files plus plan/pieces.plan.json, plan/pieces.log and plan/pieces.notes.md if present (.log, .dev-logs/ and static/macro/ are unrelated: never stage them). conventional commit with scope pieces (e.g. `feat(pieces): add the piece page`), a body of - bullets, trailers last. then git push: push deploys to production.",
+	"ww_piece": {
+		"s": "watch worthy films joins the wall as the second entry of `work`, right after udens. its source is ~/work/reddit/1ws0cqu/build.py, a spec logo for a reddit brief; the pictures come from there, never redrawn.\n1. three 2000x1300 webp slides in static/work/: watch-worthy-0 = the primary colour logo on cream, watch-worthy-1 = the profile picture large plus three small sizes on near-black, watch-worthy-2 = the black, white and gold one-colour versions. watch-worthy-t = slide 0 at 960 wide.\n2. the entry: s 'watch-worthy', t 'watch worthy films', k 'logo', c 'film review channel', d 'a scope film on a widescreen: the name plays in a 2.39:1 band, and films sits in the black bar like a subtitle.', i three [2000, 1300].",
+		"d": 1,
+		"t": "test -f static/work/watch-worthy-0.webp && test -f static/work/watch-worthy-1.webp && test -f static/work/watch-worthy-2.webp && test -f static/work/watch-worthy-t.webp && grep \"{ s: '\" src/lib/design.ts | sed -n 2p | grep -qF \"s: 'watch-worthy'\" && test \"$(grep -c \"{ s: '\" src/lib/design.ts)\" -eq 28 && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+	},
+	"shared": {
+		"s": "move shared things to one owner each before the piece page needs them",
+		"d": 0,
+		"c": {
+			"layout_g": {
+				"s": "data.g moves from the home page to the layout, so every page gets it.\n1. create src/routes/+layout.server.ts holding the exact load, and its `// g = …` comment, from src/routes/+page.server.ts.\n2. delete src/routes/+page.server.ts.\nsrc/routes/+page.svelte keeps reading data.g: PageProps already carries layout data. check that /?c=ng and /?c=us still show different heroes.",
+				"d": 0,
+				"v": "test -f src/routes/+page.server.ts",
+				"t": "test -f src/routes/+layout.server.ts && test ! -e src/routes/+page.server.ts && grep -qF 'cf-ipcountry' src/routes/+layout.server.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"page_head": {
+				"s": "the home page owns its share preview, so a piece page can carry its own without duplicate og tags.\n1. move every tag inside the <svelte:head> of src/routes/+layout.svelte, except the favicon <link>, into a <svelte:head> in src/routes/+page.svelte, unchanged. +page.svelte already imports `work`.\n2. the layout keeps the favicon link and drops its now-unused `work` import.",
+				"d": 0,
+				"v": "grep -qF 'og:image' src/routes/+layout.svelte",
+				"t": "! grep -qF 'og:' src/routes/+layout.svelte && grep -qF 'rel=\"icon\"' src/routes/+layout.svelte && grep -qF 'https://ed.apexlinks.org/og.jpg' src/routes/+page.svelte && grep -qF '<title>gold hogan · logos, flyers and websites</title>' src/routes/+page.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"ask_href": {
+				"s": "one owner for the 'want one like this?' link: the lightbox uses it now, the piece page later.\n1. add `export function ask(t: string, g: boolean)` to src/lib/design.ts, importing p from $lib/data. it returns exactly the two hrefs src/lib/components/Lightbox.svelte builds today: the whatsapp link when g, else the mailto link, both quoting the piece title t.\n2. the lightbox's pill uses ask(pc.t, g), so a single <a> replaces its {#if g} pair. the pill text stays 'want one like this? →'.",
+				"d": 0,
+				"v": "grep -qF 'want one like this' src/lib/components/Lightbox.svelte",
+				"t": "grep -qF 'export function ask(' src/lib/design.ts && grep -qF 'ask(pc.t, g)' src/lib/components/Lightbox.svelte && test \"$(grep -c 'want one like this' src/lib/components/Lightbox.svelte)\" -eq 1 && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"kind_price": {
+				"s": "each kind names the price card it sells, so a piece page can say what one like it costs. nothing renders it yet.\n1. in `kinds` in src/lib/design.ts, add key p = the t of its entry in `prices`: print 'flyer or poster', logo 'logo', identity 'brand kit', packaging 'label or packaging', apparel 't-shirt or merch'. motion gets none.\n2. extend the key comment above `kinds` with `p = the prices entry this kind sells`.",
+				"d": 0,
+				"v": "grep -qF 'export const kinds' src/lib/design.ts",
+				"t": "grep -qF \"p: 'flyer or poster'\" src/lib/design.ts && grep -qF \"p: 'label or packaging'\" src/lib/design.ts && grep -qF 'p = the prices entry' src/lib/design.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			}
+		}
+	},
+	"page": {
+		"s": "the piece page at /work/{s}",
+		"d": 0,
+		"c": {
+			"piece_load": {
+				"s": "the route turns a slug into its piece.\n1. src/routes/work/[s]/+page.ts: load finds the `work` entry whose s equals params.s. no match: error(404) from @sveltejs/kit. it returns { w }, with `// w = the piece` at the return.\n2. src/routes/work/[s]/page.spec.ts (the vitest server project): 'oktai' returns the oktai piece; 'nope' throws an error whose status is 404.\nno prerender: data.g depends on the request.",
+				"d": 0,
+				"t": "test -f 'src/routes/work/[s]/+page.ts' && test -f 'src/routes/work/[s]/page.spec.ts' && pnpm exec vitest run --project server src/routes/work && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"piece_head": {
+				"s": "src/routes/work/[s]/+page.svelte gets the piece's own share preview, from data.w. the body can stay a bare h1 of t until the next step.\n1. <title> and og:title: '{t} · gold hogan'.\n2. meta description and og:description: d.\n3. og:image: https://ed.apexlinks.org/work/{s}-{lead}.webp, lead = (o ?? [0])[0]. og:image:width and og:image:height from i[lead]. og:image:alt: t. the lead webp itself, no jpg copy.\n4. og:url and <link rel=\"canonical\">: https://ed.apexlinks.org/work/{s}. og:type website. twitter:card summary_large_image.",
+				"d": 0,
+				"v": "test -f 'src/routes/work/[s]/+page.ts'",
+				"t": "grep -qF 'og:image' 'src/routes/work/[s]/+page.svelte' && grep -qF 'canonical' 'src/routes/work/[s]/+page.svelte' && grep -qF '· gold hogan' 'src/routes/work/[s]/+page.svelte' && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"piece_body": {
+				"s": "the page body, built from the home page's classes.\n1. a top bar like the nav in src/routes/+page.svelte: 'gold hogan' → /, and pill pill-gold 'get a quote' → /#start.\n2. h1 t, sized like the home h2s. then c in text-fg-muted, then d in text-fg-secondary max-w-xl.\n3. every image in order (o, else natural order) in a max-w-[1200px] column, full width, rounded-[var(--radius-tile)] border border-border, width and height from i. the first loads eager with fetchpriority high. video v after them, as the lightbox plays it.\n4. one row: pill pill-gold 'want one like this? →' with href ask(t, data.g); text-fg-muted '{price t} from {money(price, data.g)}' when the kind has p; pill pill-ghost 'see all {work.length} designs' → /#work.\nlook at /work/oktai and /work/watch-worthy at 1440 and 390 wide with ab-1440fl.",
+				"d": 0,
+				"v": "grep -qF 'export function ask(' src/lib/design.ts && grep -qF \"p: 'logo'\" src/lib/design.ts",
+				"t": "grep -qF 'ask(' 'src/routes/work/[s]/+page.svelte' && grep -qF 'want one like this? →' 'src/routes/work/[s]/+page.svelte' && grep -qF '/#work' 'src/routes/work/[s]/+page.svelte' && grep -qF 'money(' 'src/routes/work/[s]/+page.svelte' && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"lightbox_link": {
+				"s": "the lightbox leads to each piece's page, so visitors can find and share it.\n1. in src/lib/components/Lightbox.svelte, the piece title inside the h3 becomes <a href=\"/work/{pc.s}\">: colour inherited, underline on hover. the h3 keeps data-lb-text.\n2. nothing else in the lightbox changes.",
+				"d": 0,
+				"v": "grep -qF 'data-lb-text' src/lib/components/Lightbox.svelte",
+				"t": "grep -qF 'href=\"/work/{pc.s}\"' src/lib/components/Lightbox.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			}
+		}
+	},
+	"served": {
+		"s": "prove the pages on the real worker with playwright's request fixture. no browser launches, so never run pnpm test:e2e (it reinstalls browsers).\n1. playwright.config.ts: the webServer command becomes 'pnpm build && pnpm preview', and use.baseURL is 'http://localhost:4173'.\n2. src/routes/work/work.e2e.ts: /work/watch-worthy answers 200 and its html holds '<title>watch worthy films · gold hogan</title>' and 'https://ed.apexlinks.org/work/watch-worthy-0.webp'. /work/nope answers 404. / answers 200 and holds 'https://ed.apexlinks.org/og.jpg'.",
+		"d": 0,
+		"v": "test -f 'src/routes/work/[s]/+page.svelte'",
+		"t": "test -f src/routes/work/work.e2e.ts && ! grep -qF 'npm run' playwright.config.ts && pnpm exec playwright test"
+	},
+	"live": {
+		"s": "production serves the watch worthy page once the last push deploys. nothing to build: the gate polls ed.apexlinks.org for up to 5 minutes. if it fails, open the url with ab-1440fl and read what it serves before you block.",
+		"d": 0,
+		"t": "for i in $(seq 1 30); do curl -sf --doh-url https://1.1.1.1/dns-query https://ed.apexlinks.org/work/watch-worthy | grep -qF 'watch worthy films · gold hogan' && exit 0; sleep 10; done; exit 1"
+	},
+	"message_link": {
+		"s": "ed's reddit pitch links the portfolio page instead of the dump file. ~/work/reddit/1ws0cqu/comment.md sits outside this repo: edit it, never commit it.\n1. its header line starting 'Image:' becomes 'Link: https://ed.apexlinks.org/work/watch-worthy (send board.png too once they accept)'.\n2. in the message between the --- lines, the link line becomes 'https://ed.apexlinks.org/work/watch-worthy', and 'more work: ed.apexlinks.org' goes with the blank line above it: the page links all the work.\n3. copy the message (between the --- lines) to the clipboard with wl-copy.",
+		"d": 0,
+		"v": "test -f \"$HOME/work/reddit/1ws0cqu/comment.md\"",
+		"t": "grep -qF 'https://ed.apexlinks.org/work/watch-worthy' \"$HOME/work/reddit/1ws0cqu/comment.md\" && ! grep -qF 'dump.apexlinks.org' \"$HOME/work/reddit/1ws0cqu/comment.md\" && ! grep -qF 'more work:' \"$HOME/work/reddit/1ws0cqu/comment.md\""
+	}
+}

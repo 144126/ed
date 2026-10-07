@@ -14,6 +14,7 @@ export const kinds = [
 
 export const work: piece[] = [
 	{ s: 'udens', t: 'udens launch', k: 'print', c: 'uganda diaspora event', d: 'event flyer. one yellow line climbs from kampala 0° to stockholm 59°n, where the date sits.', i: [[1414, 2000]] },
+	{ s: 'watch-worthy', t: 'watch worthy films', k: 'logo', c: 'film review channel', d: 'a scope film on a widescreen: the name plays in a 2.39:1 band, and films sits in the black bar like a subtitle.', i: [[2000, 1300], [2000, 1300], [2000, 1300]] },
 	{ s: 'chicklet', t: 'chicklet', k: 'identity', c: 'chicken sandwich brand', d: 'a chiclet is a small rounded tile, so the chick is one. its crest is the dot on the i. tent, cups, menu, stickers.', i: [[2000, 1500], [2000, 1500], [2000, 1500], [2000, 1500]] },
 	{ s: 'oktai', t: 'oktai', k: 'logo', c: 'ai agent startup', d: 'an octopus with a screen for a face. six arms, one mind.', i: [[1800, 1800], [1800, 1800], [1800, 1800]] },
 	{ s: 'e4', t: 'e4 chess coach', k: 'print', c: 'my own chess app', d: 'two a5 flyers. one pawn, one move, one url. the second has tear-off url strips.', i: [[1240, 1754], [1240, 1754]] },
