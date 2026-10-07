@@ -24,7 +24,7 @@
 			},
 			"client_lines": {
 				"s": "every piece carries a short line saying what the client is.\n1. add a required string key `c` to the `piece` type in src/lib/design.ts, and add `c = what the client is` to the key comment above it.\n2. give every `work` entry its `c` from plan/copy-deck.md § client lines, verbatim, placed right after `k`.\n3. this step is data only. the tiles and the lightbox show it in tile_captions.",
-				"d": 0,
+				"d": 1,
 				"v": "test \"$(grep -c \"{ s: '\" src/lib/design.ts)\" -eq 27",
 				"t": "grep -qF 'c: string' src/lib/design.ts && grep -qF 'c = what the client is' src/lib/design.ts && test \"$(grep -c \" c: '\" src/lib/design.ts)\" -eq 27 && grep -qF \"c: 'uganda diaspora event'\" src/lib/design.ts && grep -qF \"c: 'kids’ gifting app'\" src/lib/design.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
