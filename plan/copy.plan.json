@@ -84,7 +84,7 @@
 		"c": {
 			"og_image": {
 				"s": "a 1200x630 share image shows three real designs.\n1. write static/og.jpg: background #0b0a08, with three 360x360 tiles centre-cropped from static/work/udens-t.webp, oktai-t.webp and bioburger-t.webp, left to right. 30px gaps, 30px side margins, centred vertically. no text.\n2. make it with system python3 and PIL (already installed) as a one-off script in your scratch dir. the script never enters the repo.\n3. jpeg at about quality 85, under 300 kB, because whatsapp drops bigger preview images.\nopen the jpg and look at it before marking.",
-				"d": 0,
+				"d": 1,
 				"v": "test -f static/work/oktai-t.webp",
 				"t": "python3 -I -c \"import os; from PIL import Image; im = Image.open('static/og.jpg'); assert im.size == (1200, 630) and im.format == 'JPEG' and os.path.getsize('static/og.jpg') < 300000\" && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
