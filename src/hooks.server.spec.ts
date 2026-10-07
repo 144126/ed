@@ -11,26 +11,26 @@ function evt(href: string, method = 'GET') {
 }
 
 async function run(href: string, method = 'GET') {
-	try {
-		return await handle({ event: evt(href, method), resolve } as never);
-	} catch (e) {
-		return e as { status: number; location: string };
-	}
+	return handle({ event: evt(href, method), resolve } as never);
 }
 
 describe('the ed host after the rename', () => {
 	it('sends pages to 54 for good, path and query intact', async () => {
-		expect(await run('https://ed.apexlinks.org/work/oktai?c=us')).toMatchObject({
-			status: 301,
-			location: 'https://54.apexlinks.org/work/oktai?c=us'
-		});
+		const r = await run('https://ed.apexlinks.org/work/oktai?c=us');
+		expect(r).toBeInstanceOf(Response);
+		expect(r.status).toBe(301);
+		expect(r.headers.get('location')).toBe('https://54.apexlinks.org/work/oktai?c=us');
 	});
 
 	it('never redirects a write', async () => {
-		expect(await run('https://ed.apexlinks.org/', 'POST')).toBeInstanceOf(Response);
+		const r = await run('https://ed.apexlinks.org/', 'POST');
+		expect(r).toBeInstanceOf(Response);
+		expect(r.status).toBe(200);
 	});
 
 	it('leaves 54 alone', async () => {
-		expect(await run('https://54.apexlinks.org/')).toBeInstanceOf(Response);
+		const r = await run('https://54.apexlinks.org/');
+		expect(r).toBeInstanceOf(Response);
+		expect(r.status).toBe(200);
 	});
 });
