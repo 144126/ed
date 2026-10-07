@@ -110,7 +110,7 @@
 	},
 	"live_check": {
 		"s": "production serves the new copy to both countries.\n1. make sure every earlier commit is pushed. the push starts a cloudflare workers build, and the gate polls the live site for up to 10 minutes.\n2. the gate resolves through dns-over-https, because this laptop's dns can fake an outage.\n3. if the gate times out, the build failed or stalled. use the stuck skill, fix it, push, and mark again.\nthen look at https://ed.apexlinks.org/?c=us and /?c=ng in agent-browser (ab-1440fl) at phone and desktop widths, and open /og.jpg.",
-		"d": 0,
+		"d": 1,
 		"t": "for i in $(seq 1 30); do u=$(curl -s --doh-url https://cloudflare-dns.com/dns-query 'https://ed.apexlinks.org/?c=us'); n=$(curl -s --doh-url https://cloudflare-dns.com/dns-query 'https://ed.apexlinks.org/?c=ng'); if printf '%s' \"$u\" | grep -qF 'your new homepage, live' && printf '%s' \"$u\" | grep -qF '$360 flat' && printf '%s' \"$n\" | grep -qF 'see your flyer' && printf '%s' \"$n\" | grep -qF 'flyers from ₦9,000' && printf '%s' \"$n\" | grep -qF 'og.jpg' && curl -sf --doh-url https://cloudflare-dns.com/dns-query -o /dev/null https://ed.apexlinks.org/og.jpg; then exit 0; fi; sleep 20; done; exit 1"
 	}
 }
