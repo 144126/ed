@@ -10,7 +10,7 @@ The badge stays the same for both versions: `taking new work this week`
 
 ### nigeria (`data.g` true)
 
-- h1: `send your text tonight. see your flyer <span class="text-accent">tomorrow.</span>`
+- h1: `send your text tonight. get your design <span class="text-accent">tomorrow.</span>`
 - intro: `54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0])}.`
 - button 1: gold, `p.whatsapp`, new tab, as it is now: `message me on whatsapp`
 - button 2: ghost, `#work`, as it is now: `see {work.length} designs ↓`

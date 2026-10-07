@@ -140,7 +140,7 @@
 			</p>
 			<h1 bind:this={h1} class="text-[clamp(2.75rem,6.4vw,6.25rem)] leading-[0.98] font-medium tracking-[-0.045em] text-fg">
 				{#if data.g}
-					send your text tonight. see your flyer <span class="text-accent">tomorrow.</span>
+					send your text tonight. get your design <span class="text-accent">tomorrow.</span>
 				{:else}
 					your new homepage, live <span class="text-accent">this week.</span>
 				{/if}
