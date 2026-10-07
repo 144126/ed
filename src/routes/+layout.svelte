@@ -40,7 +40,7 @@
 	<meta property="og:image" content="https://ed.apexlinks.org/og.jpg" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="an event flyer and two logos by gold hogan" />
+	<meta property="og:image:alt" content="a flyer and two logos by gold hogan" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://ed.apexlinks.org" />
