@@ -76,9 +76,9 @@
 		"t": "for i in $(seq 1 30); do curl -sf --doh-url https://1.1.1.1/dns-query https://ed.apexlinks.org/work/watch-worthy | grep -qF 'watch worthy films · gold hogan' && exit 0; sleep 10; done; exit 1"
 	},
 	"message_link": {
-		"s": "ed's reddit pitch links the portfolio page instead of the dump file. ~/work/reddit/1ws0cqu/comment.md sits outside this repo: edit it, never commit it.\n1. its header line starting 'Image:' becomes 'Link: https://ed.apexlinks.org/work/watch-worthy (send board.png too once they accept)'.\n2. in the message between the --- lines, the link line becomes 'https://ed.apexlinks.org/work/watch-worthy', and 'more work: ed.apexlinks.org' goes with the blank line above it: the page links all the work.\n3. copy the message (between the --- lines) to the clipboard with wl-copy.",
+		"s": "ed's reddit pitch links the piece's own page. ~/work/reddit/1ws0cqu/comment.md sits outside this repo: edit it, never commit it.\n1. in its header, the line starting 'Link:' becomes 'Link: https://ed.apexlinks.org/work/watch-worthy. send board.png too once they accept.'\n2. in the message between the --- lines, the line 'https://ed.apexlinks.org/#work (it's the second one, tap it to see all the versions)' becomes 'https://ed.apexlinks.org/work/watch-worthy'. nothing else in the message changes.\n3. copy the message (between the --- lines) to the clipboard with wl-copy.",
 		"d": 0,
 		"v": "test -f \"$HOME/work/reddit/1ws0cqu/comment.md\"",
-		"t": "grep -qF 'https://ed.apexlinks.org/work/watch-worthy' \"$HOME/work/reddit/1ws0cqu/comment.md\" && ! grep -qF 'dump.apexlinks.org' \"$HOME/work/reddit/1ws0cqu/comment.md\" && ! grep -qF 'more work:' \"$HOME/work/reddit/1ws0cqu/comment.md\""
+		"t": "grep -qF 'https://ed.apexlinks.org/work/watch-worthy' \"$HOME/work/reddit/1ws0cqu/comment.md\" && ! grep -qF 'apexlinks.org/#work' \"$HOME/work/reddit/1ws0cqu/comment.md\" && ! grep -qF 'dump.apexlinks.org' \"$HOME/work/reddit/1ws0cqu/comment.md\""
 	}
 }
