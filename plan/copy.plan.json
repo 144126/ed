@@ -54,7 +54,7 @@
 			},
 			"hero_by_country": {
 				"s": "the hero sells to the visitor's country.\n1. in src/routes/+page.svelte, the hero h1, the intro paragraph, both buttons and the three stats switch on `data.g`, with the strings from plan/copy-deck.md § hero.\n2. the email button is a mailto to `p.email`, with the deck's url-encoded subject and body.\n3. keep the badge, the fan (udens, e4, beee), the gsap hooks (`bind:this={h1}`, `data-hero`) and the existing classes.\n4. every amount comes from `money()`. never type one.\nlook at /?c=ng and /?c=us: the h1 line animation must still run.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF 'flyers, posters and logos. first draft in' src/routes/+page.svelte",
 				"t": "grep -qF 'see your flyer' src/routes/+page.svelte && grep -qF 'your new homepage, live' src/routes/+page.svelte && grep -qF 'see live sites ↓' src/routes/+page.svelte && grep -qF 'a designer who builds websites' src/routes/+page.svelte && grep -qF 'a voice note is fine. flyers from' src/routes/+page.svelte && ! grep -qF 'real designs below' src/routes/+page.svelte && ! grep -qF 'first draft in <span' src/routes/+page.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},

@@ -133,19 +133,38 @@
 				<span class="live-dot"></span>taking new work this week
 			</p>
 			<h1 bind:this={h1} class="text-[clamp(2.75rem,6.4vw,6.25rem)] leading-[0.98] font-medium tracking-[-0.045em] text-fg">
-				flyers, posters and logos. first draft in <span class="text-accent">24 hours.</span>
+				{#if data.g}
+					send your text tonight. see your flyer <span class="text-accent">tomorrow.</span>
+				{:else}
+					your new homepage, live <span class="text-accent">this week.</span>
+				{/if}
 			</h1>
 			<p data-hero class="mt-7 max-w-xl text-lg leading-relaxed text-fg-secondary">
-				i’m gold, a graphic designer. send me your text and your deadline. you get clean, print-ready files you own, from {money(prices[0], data.g)}.
+				{#if data.g}
+					i’m gold, a graphic designer. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0], data.g)}.
+				{:else}
+					i’m gold, a designer who builds websites. a homepage on your own domain, {money(site_price, data.g)} flat.
+				{/if}
 			</p>
 			<div data-hero class="mt-9 flex flex-wrap gap-3">
-				<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>message me on whatsapp</a>
-				<a href="#work" class="pill pill-ghost">see {work.length} designs ↓</a>
+				{#if data.g}
+					<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>message me on whatsapp</a>
+					<a href="#work" class="pill pill-ghost">see {work.length} designs ↓</a>
+				{:else}
+					<a href="mailto:{p.email}?subject={encodeURIComponent('a new homepage')}&body={encodeURIComponent('hi gold, i found your site. i want a new homepage.\n\nmy current site: ')}" class="pill pill-gold" use:magnetic={0.2}>email me</a>
+					<a href="#web" class="pill pill-ghost">see live sites ↓</a>
+				{/if}
 			</div>
 			<ul data-hero class="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-fg-muted">
-				<li><span class="text-fg">{work.length}</span> real designs below</li>
-				<li><span class="text-fg">2</span> rounds of changes included</li>
-				<li>editable <span class="text-fg">source files</span></li>
+				{#if data.g}
+					<li><span class="text-fg">2</span> rounds of changes included</li>
+					<li>pay <span class="text-fg">half</span> to start</li>
+					<li>you own <span class="text-fg">every file</span></li>
+				{:else}
+					<li>made for <span class="text-fg">phones</span></li>
+					<li><span class="text-fg">no</span> monthly fees</li>
+					<li>logos and flyers <span class="text-fg">too</span></li>
+				{/if}
 			</ul>
 		</div>
 
