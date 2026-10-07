@@ -44,12 +44,12 @@ export const work: piece[] = [
 
 // t = service, u = starting price in usd, n = starting price in naira, d = what you get
 export const prices = [
-	{ t: 'flyer or poster', u: 25, n: 9000, d: 'one design, print-ready pdf + png, sized for print or instagram.' },
-	{ t: 'social media pack', u: 40, n: 13500, d: '5 posts or stories in one look, ready to upload.' },
-	{ t: 'logo', u: 49, n: 18000, d: '2 concepts, the winner in full colour, one-colour and reversed. svg, pdf, png.' },
+	{ t: 'flyer or poster', u: 25, n: 9000, d: 'one design, sized for your printer and for instagram.' },
+	{ t: 'social media pack', u: 40, n: 13500, d: '5 posts or stories that look like one brand, ready to upload.' },
+	{ t: 'logo', u: 49, n: 18000, d: '2 ideas to pick from, then every version you’ll need: colour, black and white.' },
 	{ t: 'brand kit', u: 120, n: 36000, d: 'logo plus colours, fonts, business card and a one-page guide.' },
-	{ t: 'label or packaging', u: 60, n: 18000, d: 'set 1:1 on your printer’s dieline, with bleed.' },
-	{ t: 't-shirt or merch', u: 30, n: 9000, d: 'front and back art, vector, separated for screen print.' }
+	{ t: 'label or packaging', u: 60, n: 18000, d: 'fits your printer’s template exactly, so nothing gets cut off.' },
+	{ t: 't-shirt or merch', u: 30, n: 9000, d: 'front and back art, ready for your shirt printer.' }
 ];
 
 export const site_price = { u: 360, n: 90000 };

@@ -14,7 +14,7 @@
 	},
 	"data": {
 		"s": "the work wall and the price cards, in src/lib/design.ts",
-		"d": 0,
+		"d": 1,
 		"c": {
 			"drop_pieces": {
 				"s": "four pieces leave the wall: staging, bluehour and hated (ai made most of each, and illustration is not for sale) and mca (it reads as a maga joke).\n1. remove the `work` entries with s 'staging', 'bluehour', 'hated' and 'mca' from src/lib/design.ts.\n2. remove the 'illustration' entry from `kinds`, since no piece uses it after this.\n3. `git rm` their files: static/work/staging-0, -1, -2, -t, bluehour-0, -1, -t, hated-0, -t and mca-0, -t (all .webp).\n4. keep tmg: its pictures are hand vector.\nthe counts derive from `work`, so 27 shows up everywhere by itself.",
@@ -36,7 +36,7 @@
 			},
 			"price_lines": {
 				"s": "price cards say what the buyer gets, without printer jargon.\n1. in src/lib/design.ts `prices`, replace the `d` of flyer or poster, social media pack, logo, label or packaging, and t-shirt or merch with plan/copy-deck.md § price lines, verbatim. brand kit keeps its line.\n2. touch no `t`, `u` or `n`.\nafter this, no line in the file says dieline, bleed or reversed. piece_lines already cleared them from `work`.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF 'dieline, with bleed' src/lib/design.ts",
 				"t": "grep -qF 'so nothing gets cut off.' src/lib/design.ts && grep -qF 'ready for your shirt printer.' src/lib/design.ts && grep -qF 'colour, black and white.' src/lib/design.ts && ! grep -qE 'dieline|bleed|reversed|separated for screen|in one look|the winner' src/lib/design.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			}
