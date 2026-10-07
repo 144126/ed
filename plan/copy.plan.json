@@ -2,7 +2,7 @@
 	"_": "repo ~/i/ed is gold hogan's portfolio, live at ed.apexlinks.org. stack: sveltekit (next), svelte 5 runes, tailwind 4, cloudflare workers adapter, pnpm, node 24.\ngoal: fix every point of the 2026-10-07 copy critique.\ncopy: every user-facing string comes verbatim from plan/copy-deck.md, in the section the step names. never write your own copy.\nsettled with ed, do not revisit:\n- the name is gold hogan. the footer's \"© … gold edem hogan\" stays: it bridges the 20 cold emails signed ed hogan.\n- the page splits by country on data.g. true = nigeria: naira, whatsapp first, flyers and logos first. false = everyone else: usd, email first, the $360 homepage from ed's cold emails first.\n- usd prices go back to pre-cut. the homepage is $360 / ₦90,000 flat.\n- staging, bluehour, hated and mca leave the wall. every piece that used ai says so in its line.\nfiles: src/lib/design.ts (work, kinds, prices, site_price, money), src/routes/+page.svelte (page copy, start form, sites list), src/routes/+page.server.ts (data.g), src/routes/+layout.svelte (head), src/lib/components/Lightbox.svelte, src/lib/data.ts (p = contact info, read only).\ncode rules: copy all lowercase, no emoji, ’ for apostrophes. snake_case. single-letter keys get a comment at their definition. no new comments except a non-obvious why. no single-use variables.\ntraps: pnpm check type-checks build output, and its wrangler types --check needs that output, so gates run svelte-check on a clean tree, then build. pnpm lint (prettier, eslint) was red before this plan: never reformat a file or fix unrelated lint. a dev server may already run: check `ss -ltnp | grep 9270` and tail .log, reuse it, start one only if none runs. from preview_override on, /?c=ng and /?c=us show each country.\nafter each mark: commit only that step's files plus plan/copy.plan.json, plan/copy.log and plan/copy.notes.md if present (.log, .dev-logs/ and static/macro/ are unrelated: never stage them). conventional commit with scope copy (e.g. `fix(copy): restore usd prices`), a body of - bullets, trailers last. then git push: push deploys to production.",
 	"usd_prices": {
 		"s": "visitors outside nigeria see the pre-cut usd prices and the $360 homepage price from ed's cold emails.\n1. in src/lib/design.ts `prices`, set only the `u` values: flyer or poster 25, social media pack 40, logo 49, brand kit 120, label or packaging 60, t-shirt or merch 30. leave every `n` (naira) as it is.\n2. set `site_price` to { u: 360, n: 90000 }.\n3. nothing else: the `d` lines change in price_lines, the websites wording in section_headings.\nwhy: on 2026-10-06, 20 us businesses got an email offering a homepage for $360 flat with a link here, and the page says websites start from $63.",
-		"d": 0,
+		"d": 1,
 		"v": "grep -qF 'export const site_price' src/lib/design.ts",
 		"t": "grep -qF \"{ t: 'flyer or poster', u: 25, n: 9000\" src/lib/design.ts && grep -qF 'u: 40, n: 13500' src/lib/design.ts && grep -qF 'u: 49, n: 18000' src/lib/design.ts && grep -qF 'u: 120, n: 36000' src/lib/design.ts && grep -qF 'u: 60, n: 18000' src/lib/design.ts && grep -qF 'u: 30, n: 9000' src/lib/design.ts && grep -qF 'site_price = { u: 360, n: 90000 }' src/lib/design.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 	},
@@ -14,6 +14,7 @@
 	},
 	"data": {
 		"s": "the work wall and the price cards, in src/lib/design.ts",
+		"d": 0,
 		"c": {
 			"drop_pieces": {
 				"s": "four pieces leave the wall: staging, bluehour and hated (ai made most of each, and illustration is not for sale) and mca (it reads as a maga joke).\n1. remove the `work` entries with s 'staging', 'bluehour', 'hated' and 'mca' from src/lib/design.ts.\n2. remove the 'illustration' entry from `kinds`, since no piece uses it after this.\n3. `git rm` their files: static/work/staging-0, -1, -2, -t, bluehour-0, -1, -t, hated-0, -t and mca-0, -t (all .webp).\n4. keep tmg: its pictures are hand vector.\nthe counts derive from `work`, so 27 shows up everywhere by itself.",
@@ -43,6 +44,7 @@
 	},
 	"page": {
 		"s": "page copy in src/routes/+page.svelte, plus the lightbox",
+		"d": 0,
 		"c": {
 			"tile_captions": {
 				"s": "each tile and the lightbox say what the client is.\n1. in src/routes/+page.svelte, a tile caption becomes two lines on every screen size: the title, then `pc.c` in small muted text. the kind label leaves the tile. the filter chips keep using `kinds`.\n2. in the `cols` height sum, raise the per-tile caption allowance from 0.15 to about 0.25, so columns stay balanced with the extra line.\n3. in src/lib/components/Lightbox.svelte, show `pc.c` as a small muted line under the h3 title.\nlook at the wall at phone and desktop widths.",
@@ -78,6 +80,7 @@
 	},
 	"head": {
 		"s": "the share preview and the tab icon",
+		"d": 0,
 		"c": {
 			"og_image": {
 				"s": "a 1200x630 share image shows three real designs.\n1. write static/og.jpg: background #0b0a08, with three 360x360 tiles centre-cropped from static/work/udens-t.webp, oktai-t.webp and bioburger-t.webp, left to right. 30px gaps, 30px side margins, centred vertically. no text.\n2. make it with system python3 and PIL (already installed) as a one-off script in your scratch dir. the script never enters the repo.\n3. jpeg at about quality 85, under 300 kB, because whatsapp drops bigger preview images.\nopen the jpg and look at it before marking.",
