@@ -8,7 +8,7 @@
 	},
 	"preview_override": {
 		"s": "anyone can preview either country: /?c=ng shows the nigerian page, and /?c=us (any other code) shows everyone else's.\n1. in src/routes/+page.server.ts, `g` reads the `c` query param first (case-insensitive), then platform.cf.country, then the cf-ipcountry header, as it does now.\n2. extend the `g` comment to say that ?c= overrides it.\nwhy: ed works from nigeria and cannot otherwise see what his us leads see, and later steps check both versions this way.\nlook: `curl -s 'http://localhost:9270/?c=us'` shows `$`, and `?c=ng` shows `₦`.",
-		"d": 0,
+		"d": 1,
 		"v": "grep -qF 'cf-ipcountry' src/routes/+page.server.ts",
 		"t": "grep -qE \"searchParams\\.get\\(['\\\"]c['\\\"]\\)\" src/routes/+page.server.ts && grep -qF '?c=' src/routes/+page.server.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 	},
