@@ -3,7 +3,8 @@
 	import type { piece } from '$lib/design';
 	import { p } from '$lib/data';
 
-	let { list, at = $bindable(), from, onclose }: { list: piece[]; at: number; from: DOMRect | null; onclose: () => void } = $props();
+	// g = visitor is in nigeria
+	let { list, at = $bindable(), from, onclose, g }: { list: piece[]; at: number; from: DOMRect | null; onclose: () => void; g: boolean } = $props();
 
 	let n = $state(0);
 	let stage: HTMLElement;
@@ -98,7 +99,11 @@
 			<p data-lb-text class="mt-3 max-w-xl" style="color: var(--color-fg-secondary); line-height: 1.6;">{pc.d}</p>
 		</div>
 		<div data-lb-text class="md:col-span-5 flex flex-col md:items-end gap-4">
-			<a href="{p.whatsapp}?text={encodeURIComponent(`hi gold, i found you on ed.apexlinks.org. i want something like "${pc.t}" for my business.`)}" target="_blank" rel="noopener noreferrer" class="pill pill-gold self-start md:self-end">want one like this? →</a>
+			{#if g}
+				<a href="{p.whatsapp}?text={encodeURIComponent(`hi gold. i saw "${pc.t}" on your site and i want something like it.`)}" target="_blank" rel="noopener noreferrer" class="pill pill-gold self-start md:self-end">want one like this? →</a>
+			{:else}
+				<a href="mailto:{p.email}?subject={encodeURIComponent(`something like "${pc.t}"`)}&body={encodeURIComponent(`hi gold. i saw "${pc.t}" on your site and i want something like it.`)}" class="pill pill-gold self-start md:self-end">want one like this? →</a>
+			{/if}
 			<div class="flex md:justify-end gap-2 flex-wrap">
 			{#each slides as s, j}
 				<button class="dot cursor-pointer" class:on={j === n} aria-label="view {j + 1}" onclick={() => (n = j)}>

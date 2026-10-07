@@ -44,7 +44,7 @@
 	},
 	"page": {
 		"s": "page copy in src/routes/+page.svelte, plus the lightbox",
-		"d": 0,
+		"d": 1,
 		"c": {
 			"tile_captions": {
 				"s": "each tile and the lightbox say what the client is.\n1. in src/routes/+page.svelte, a tile caption becomes two lines on every screen size: the title, then `pc.c` in small muted text. the kind label leaves the tile. the filter chips keep using `kinds`.\n2. in the `cols` height sum, raise the per-tile caption allowance from 0.15 to about 0.25, so columns stay balanced with the extra line.\n3. in src/lib/components/Lightbox.svelte, show `pc.c` as a small muted line under the h3 title.\nlook at the wall at phone and desktop widths.",
@@ -72,7 +72,7 @@
 			},
 			"messages": {
 				"s": "prefilled messages read like a person, never mention the domain, and reach visitors outside nigeria by email.\n1. in src/routes/+page.svelte, the start form's `message` follows plan/copy-deck.md § messages: no \"a \" before the choice, no domain. its email subject stays `${want}, ${when}`.\n2. pass `g={data.g}` into `<Lightbox>` as a new prop. in src/lib/components/Lightbox.svelte, the \"want one like this?\" link keeps its text. when g is true it opens whatsapp with the deck's prefill, as now. when g is false it is a mailto to `p.email`, with the deck's subject and the same prefill as its body.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF 'i found you on ed.apexlinks.org' src/routes/+page.svelte",
 				"t": "! grep -qF 'ed.apexlinks.org' src/routes/+page.svelte src/lib/components/Lightbox.svelte && ! grep -qF 'i need: a ' src/routes/+page.svelte && grep -qF 'hi gold, i found your site.' src/routes/+page.svelte && grep -qF 'on your site and i want something like it.' src/lib/components/Lightbox.svelte && grep -qF 'mailto:' src/lib/components/Lightbox.svelte && grep -qF 'g={data.g}' src/routes/+page.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			}

@@ -39,7 +39,7 @@
 	let want = $state('flyer or poster');
 	let when = $state('in 2–3 days');
 	let note = $state('');
-	const message = $derived(`hi gold, i found you on ed.apexlinks.org.\n\ni need: a ${want}\nwhen: ${when}${note.trim() ? `\ndetails: ${note.trim()}` : ''}`);
+	const message = $derived(`hi gold, i found your site.\n\ni need: ${want}\nwhen: ${when}${note.trim() ? `\ndetails: ${note.trim()}` : ''}`);
 
 	let filter = $state('all');
 	let vw = $state(1440);
@@ -369,7 +369,7 @@
 </footer>
 
 {#if at !== null}
-	<Lightbox {list} bind:at {from} onclose={() => (at = null)} />
+	<Lightbox {list} bind:at {from} g={data.g} onclose={() => (at = null)} />
 {/if}
 
 {#if frame}
