@@ -77,6 +77,12 @@
 	}
 
 	$effect(() => {
+		// w = slug of a piece to open on load, so a link can go straight to it (?w=watch-worthy)
+		const pc = work.find((x) => x.s === new URLSearchParams(location.search).get('w'));
+		if (pc) at = work.indexOf(pc);
+	});
+
+	$effect(() => {
 		if (usesReducedMotion()) return;
 		const split = new SplitText(h1, { type: 'lines', mask: 'lines' });
 		const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
