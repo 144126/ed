@@ -94,6 +94,7 @@
 	<div class="grid md:grid-cols-12 gap-4 md:gap-8 items-end px-4 md:px-8 pt-6 pb-6 md:pb-8">
 		<div class="md:col-span-7 overflow-hidden">
 			<h3 data-lb-text class="font-medium leading-[1] tracking-[-0.04em]" style="font-size: clamp(1.75rem, 4vw, 3.25rem); color: var(--color-fg);">{pc.t}</h3>
+			<p data-lb-text class="mt-2 text-sm" style="color: var(--color-fg-muted);">{pc.c}</p>
 			<p data-lb-text class="mt-3 max-w-xl" style="color: var(--color-fg-secondary); line-height: 1.6;">{pc.d}</p>
 		</div>
 		<div data-lb-text class="md:col-span-5 flex flex-col md:items-end gap-4">

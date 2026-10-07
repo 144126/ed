@@ -61,7 +61,7 @@
 			const c = hs.indexOf(Math.min(...hs));
 			const [w, h] = lead(pc);
 			out[c].push(pc);
-			hs[c] += h / w + 0.15;
+			hs[c] += h / w + 0.25;
 		}
 		return out;
 	});
@@ -194,9 +194,9 @@
 								<span class="tile-img block overflow-hidden">
 									<img src="/work/{pc.s}-t.webp" alt={pc.t} width={lead(pc)[0]} height={lead(pc)[1]} loading={work.indexOf(pc) < 8 ? 'eager' : 'lazy'} class="block h-auto w-full" />
 								</span>
-								<span class="flex items-baseline justify-between gap-3 px-1 pt-2.5 text-sm">
+								<span class="flex flex-col px-1 pt-2.5 text-sm">
 									<span class="truncate text-fg">{pc.t}</span>
-									<span class="hidden shrink-0 text-xs text-fg-muted sm:inline">{kinds.find((k) => k.k === pc.k)?.l}</span>
+									<span class="truncate text-xs text-fg-muted">{pc.c}</span>
 								</span>
 							</button>
 						{/each}

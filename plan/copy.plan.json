@@ -48,7 +48,7 @@
 		"c": {
 			"tile_captions": {
 				"s": "each tile and the lightbox say what the client is.\n1. in src/routes/+page.svelte, a tile caption becomes two lines on every screen size: the title, then `pc.c` in small muted text. the kind label leaves the tile. the filter chips keep using `kinds`.\n2. in the `cols` height sum, raise the per-tile caption allowance from 0.15 to about 0.25, so columns stay balanced with the extra line.\n3. in src/lib/components/Lightbox.svelte, show `pc.c` as a small muted line under the h3 title.\nlook at the wall at phone and desktop widths.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF 'c: string' src/lib/design.ts",
 				"t": "grep -qF '{pc.c}' src/routes/+page.svelte && grep -qF '{pc.c}' src/lib/components/Lightbox.svelte && ! grep -qF 'kinds.find((k) => k.k === pc.k)' src/routes/+page.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
