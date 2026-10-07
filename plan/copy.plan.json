@@ -30,7 +30,7 @@
 			},
 			"piece_lines": {
 				"s": "piece lines drop designer jargon, and every piece that used ai says what the ai did.\n1. in src/lib/design.ts `work`, replace the `d` of oktai, utensil, trinh, cd, carryon, suma, sk, clay, tachyra, tmg, bioburger and journal with plan/copy-deck.md § piece lines, verbatim.\n2. leave every other `d` as it is.\nwhy: the faq promises \"i say so when i do\". the evidence: chatgpt c2pa data on the trinh boards, gpt-image scripts in the bio burger and clay folders, a gpt-image tee mockup for tachyra, and ai declared to freelancer for utensil and journal.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF 'five arc radii' src/lib/design.ts",
 				"t": "grep -qF 'ai made the storefront photo.' src/lib/design.ts && grep -qF 'ai made the car picture.' src/lib/design.ts && grep -qF 'ai made the shirt photo.' src/lib/design.ts && grep -qF 'ai made those three photos.' src/lib/design.ts && test \"$(grep -c 'made with ai help.' src/lib/design.ts)\" -eq 2 && ! grep -qE 'radii|mitred|200px|real editable|one bowl|jade dusk' src/lib/design.ts && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
