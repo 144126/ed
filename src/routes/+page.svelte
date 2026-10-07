@@ -13,14 +13,14 @@
 
 	// t = name, u = live url, d = one line
 	const sites = [
-		{ t: 'y2', u: 'https://y2.apexlinks.org', d: 'my own real-time social app: posts, rooms, dms, voice and video calls.' },
+		{ t: 'y2', u: 'https://y2.apexlinks.org', d: 'our real-time social app: posts, rooms, dms, voice and video calls.' },
 		{ t: 'beee chess championship', u: 'https://beeeproject.com', d: 'sign-ups and payments for an inter-school chess tournament in abuja.' },
-		{ t: 'e4 chess coach', u: 'https://e4.apexlinks.org', d: 'my own free chess coach. it explains every move, from zero.' }
+		{ t: 'e4 chess coach', u: 'https://e4.apexlinks.org', d: 'our free chess coach. it explains every move, from zero.' }
 	];
 	const fan = ['trinh', 'e4', 'chicklet'].map((s) => work.find((w) => w.s === s)!);
 
 	const steps = [
-		['tell me what you need', 'the text, the size, the deadline, and any logo or photos you have. a voice note is fine.'],
+		['tell us what you need', 'the text, the size, the deadline, and any logo or photos you have. a voice note is fine.'],
 		['get a fixed price', 'you know the full cost before any work starts. half to start, half before the final files.'],
 		['first draft in 24 hours', 'then two rounds of changes are included, each back within a day.'],
 		['get your files', 'print-ready pdf, png for screens, and the editable source. you own all of it.']
@@ -31,7 +31,7 @@
 		['can you work from my sketch or an old logo?', 'yes. send a photo of the sketch, a screenshot or a blurry old file. i redraw it as clean vector, not a trace.'],
 		['do you use ai?', 'yes, for mockup photos and some pictures, and every piece that used it says so. logos and type are built by hand as editable vector.'],
 		['do you print?', 'no. you get files your local printer or an online printer can use straight away. i size them to your printer’s specs.'],
-		['what if i don’t like the first draft?', 'tell me what feels off, even in plain words like “too busy” or “more fun”. that is what the two rounds of changes are for.']
+		['what if i don’t like the first draft?', 'tell us what feels off, even in plain words like “too busy” or “more fun”. that is what the two rounds of changes are for.']
 	];
 
 	const whats = [...prices.map((x) => x.t), 'website', 'something else'];
@@ -154,10 +154,10 @@
 			</p>
 			<div data-hero class="mt-9 flex flex-wrap gap-3">
 				{#if data.g}
-					<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>message me on whatsapp</a>
+					<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>message us on whatsapp</a>
 					<a href="#work" class="pill pill-ghost">see {work.length} designs ↓</a>
 				{:else}
-					<a href="mailto:{p.email}?subject={encodeURIComponent('a new homepage')}&body={encodeURIComponent('hi 54, i found your site. i want a new homepage.\n\nmy current site: ')}" class="pill pill-gold" use:magnetic={0.2}>email me</a>
+					<a href="mailto:{p.email}?subject={encodeURIComponent('a new homepage')}&body={encodeURIComponent('hi 54, i found your site. i want a new homepage.\n\nmy current site: ')}" class="pill pill-gold" use:magnetic={0.2}>email us</a>
 					<a href="#web" class="pill pill-ghost">see live sites ↓</a>
 				{/if}
 			</div>
@@ -233,7 +233,7 @@
 	<section id="prices" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="mb-12 grid items-end gap-6 md:grid-cols-12" use:reveal>
 			<div class="md:col-span-7">
-				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">you know the price before i start.</h2>
+				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">you know the price before we start.</h2>
 			</div>
 			<p class="text-fg-secondary md:col-span-5 md:text-right">starting prices in {data.g ? 'naira' : 'us dollars'}. tap one to start.</p>
 		</div>
@@ -312,7 +312,7 @@
 			<div class="md:col-span-7">
 				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">made for phones first.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">a new homepage on your own domain, live this week. {money(site_price, data.g)} flat, no monthly fees. three sites i built:</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">a new homepage on your own domain, live this week. {money(site_price, data.g)} flat, no monthly fees. three sites we built:</p>
 		</div>
 		<div class="grid gap-3 md:grid-cols-3 md:gap-4" use:reveal={{ selector: '> *', stagger: 0.08 }}>
 			{#each sites as x (x.t)}
@@ -358,10 +358,10 @@
 			</h2>
 			<div class="mt-10 flex flex-wrap justify-center gap-3">
 				<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>whatsapp {p.phone}</a>
-				<a href="mailto:{p.email}" class="pill pill-ghost" use:magnetic={0.2}>email me</a>
+				<a href="mailto:{p.email}" class="pill pill-ghost" use:magnetic={0.2}>email us</a>
 			</div>
 			<p class="mt-8 flex items-center justify-center gap-2.5 text-sm text-fg-muted">
-				<span class="live-dot"></span>it’s {clock || '—'} for me (wat, utc+1)
+				<span class="live-dot"></span>it’s {clock || '—'} for us (wat, utc+1)
 			</p>
 		</div>
 	</section>

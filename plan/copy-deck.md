@@ -12,7 +12,7 @@ The badge stays the same for both versions: `taking new work this week`
 
 - h1: `send your text tonight. get your design <span class="text-accent">tomorrow.</span>`
 - intro: `54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0])}.`
-- button 1: gold, `p.whatsapp`, new tab, as it is now: `message me on whatsapp`
+- button 1: gold, `p.whatsapp`, new tab, as it is now: `message us on whatsapp`
 - button 2: ghost, `#work`, as it is now: `see {work.length} designs ↓`
 - stats:
   - `<span class="text-fg">2</span> rounds of changes included`
@@ -23,7 +23,7 @@ The badge stays the same for both versions: `taking new work this week`
 
 - h1: `your new homepage, live <span class="text-accent">this week.</span>`
 - intro: `54 is a design studio. a homepage on your own domain, {money(site_price)} flat.`
-- button 1: gold: `email me`. Its href is `mailto:{p.email}`, with subject `a new homepage` and body `hi 54, i found your site. i want a new homepage.\n\nmy current site: ` (`\n` is a newline). Url-encode both, the way the start form's mailto does.
+- button 1: gold: `email us`. Its href is `mailto:{p.email}`, with subject `a new homepage` and body `hi 54, i found your site. i want a new homepage.\n\nmy current site: ` (`\n` is a newline). Url-encode both, the way the start form's mailto does.
 - button 2: ghost, `#web`: `see live sites ↓`
 - stats:
   - `made for <span class="text-fg">phones</span>`
@@ -39,7 +39,7 @@ Each piece's `c` in `work`, by slug:
 | udens | uganda diaspora event |
 | chicklet | chicken sandwich brand |
 | oktai | ai agent startup |
-| e4 | my own chess app |
+| e4 | our chess app |
 | suma | supplement brand |
 | bioburger | burger restaurant |
 | beee | school chess tournament |
@@ -101,24 +101,24 @@ The "side" text is the paragraph beside each h2. The how-it-works h2 and its ste
 
 - work h2: `every logo here hides an idea.`
 - work side: `most are concepts for briefs that businesses posted online. tap one to find its idea.`
-- prices h2: `you know the price before i start.`
+- prices h2: `you know the price before we start.`
 - prices side: `starting prices in {data.g ? 'naira' : 'us dollars'}. tap one to start.`
 - start h2: `pick two things. your message writes itself.`
 - websites h2: `made for phones first.`
-- websites side: `a new homepage on your own domain, live this week. {money(site_price)} flat, no monthly fees. three sites i built:`
+- websites side: `a new homepage on your own domain, live this week. {money(site_price)} flat, no monthly fees. three sites we built:`
 - questions h2: `questions.`
 
 ## details
 
 - marquee items, in this order: `flyers`, `logos`, `brand kits`, `websites`, `labels`, `packaging`, `t-shirts`, `social posts`, `menus`, `signage`
 - the `d` of each site in `sites`:
-  - y2: `my own real-time social app: posts, rooms, dms, voice and video calls.` This site was x2. It was renamed on 2026-10-07, and x2.apexlinks.org now 301s to it, so its `t` becomes `y2` and its `u` becomes `https://y2.apexlinks.org`.
+  - y2: `our real-time social app: posts, rooms, dms, voice and video calls.` This site was x2. It was renamed on 2026-10-07, and x2.apexlinks.org now 301s to it, so its `t` becomes `y2` and its `u` becomes `https://y2.apexlinks.org`.
   - beee chess championship: `sign-ups and payments for an inter-school chess tournament in abuja.`
-  - e4 chess coach: `my own free chess coach. it explains every move, from zero.`
+  - e4 chess coach: `our free chess coach. it explains every move, from zero.`
 - faq answers (the questions stay the same):
   - what files do i get?: `a print-ready pdf, png or jpg for social, and the source file (svg, illustrator or figma). logos also come in colour, black and white versions.`
   - do you use ai?: `yes, for mockup photos and some pictures, and every piece that used it says so. logos and type are built by hand as editable vector.`
-- contact section email button text: `email me`
+- contact section email button text: `email us`
 
 ## messages
 
