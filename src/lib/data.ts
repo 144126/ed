@@ -6,9 +6,8 @@ export const p = {
 	whatsapp: 'https://wa.me/2348118718106',
 	github: 'https://github.com/144126',
 	org: 'https://github.com/angelwingscomms',
-	location: 'Nigeria',
-	summary:
-		'Versatile full-stack developer experienced in SvelteKit, TypeScript, Python, and Rust. Builds scalable microservices, AI-driven applications with vector embeddings, and algorithmic trading systems (MQL5/ccxt). Proficient in end-to-end deployment utilizing AWS, Docker, and CI/CD pipelines to deliver high-performance cloud solutions.'
+	location: 'Abuja',
+	summary: '54 is a design studio.'
 };
 
 export const skills = [

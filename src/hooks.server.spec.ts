@@ -14,12 +14,19 @@ async function run(href: string, method = 'GET') {
 	return handle({ event: evt(href, method), resolve } as never);
 }
 
-describe('the ed host after the rename', () => {
-	it('sends pages to 54 for good, path and query intact', async () => {
+describe('hosts that are not 54', () => {
+	it('sends the old name to 54, path and query intact', async () => {
 		const r = await run('https://ed.apexlinks.org/work/oktai?c=us');
 		expect(r).toBeInstanceOf(Response);
 		expect(r.status).toBe(301);
 		expect(r.headers.get('location')).toBe('https://54.apexlinks.org/work/oktai?c=us');
+	});
+
+	it('sends the workers.dev host to 54', async () => {
+		const r = await run('https://ed.apexlinks.workers.dev/');
+		expect(r).toBeInstanceOf(Response);
+		expect(r.status).toBe(301);
+		expect(r.headers.get('location')).toBe('https://54.apexlinks.org/');
 	});
 
 	it('never redirects a write', async () => {

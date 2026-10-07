@@ -11,7 +11,7 @@ The badge stays the same for both versions: `taking new work this week`
 ### nigeria (`data.g` true)
 
 - h1: `send your text tonight. get your design <span class="text-accent">tomorrow.</span>`
-- intro: `54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0])}.`
+- intro: `54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. designs from {money(prices[0])}.`
 - button 1: gold, `p.whatsapp`, new tab, as it is now: `message us on whatsapp`
 - button 2: ghost, `#work`, as it is now: `see {work.length} designs ↓`
 - stats:
@@ -100,12 +100,12 @@ The new `d` in `prices`. The brand kit keeps its line.
 The "side" text is the paragraph beside each h2. The how-it-works h2 and its steps stay as they are.
 
 - work h2: `every logo here hides an idea.`
-- work side: `most are concepts for briefs that businesses posted online. tap one to find its idea.`
+- work side: `selected work. tap one to find its idea.`
 - prices h2: `you know the price before we start.`
 - prices side: `starting prices in {data.g ? 'naira' : 'us dollars'}. tap one to start.`
 - start h2: `pick two things. your message writes itself.`
 - websites h2: `made for phones first.`
-- websites side: `a new homepage on your own domain, live this week. {money(site_price)} flat, no monthly fees. three sites we built:`
+- websites side: `a new homepage on your own domain, live this week. {money(site_price)} flat, no monthly fees. three of our products:`
 - questions h2: `questions.`
 
 ## details
@@ -117,7 +117,9 @@ The "side" text is the paragraph beside each h2. The how-it-works h2 and its ste
   - e4 chess coach: `our free chess coach. it explains every move, from zero.`
 - faq answers (the questions stay the same):
   - what files do i get?: `a print-ready pdf, png or jpg for social, and the source file (svg, illustrator or figma). logos also come in colour, black and white versions.`
+  - can you work from my sketch or an old logo?: `yes. send a photo of the sketch, a screenshot or a blurry old file. we redraw it as clean vector, not a trace.`
   - do you use ai?: `yes, for mockup photos and some pictures, and every piece that used it says so. logos and type are built by hand as editable vector.`
+  - do you print?: `no. you get files your local printer or an online printer can use straight away. we size them to your printer’s specs.`
 - contact section email button text: `email us`
 
 ## messages

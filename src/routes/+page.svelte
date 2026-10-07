@@ -28,9 +28,9 @@
 
 	const faqs = [
 		['what files do i get?', 'a print-ready pdf, png or jpg for social, and the source file (svg, illustrator or figma). logos also come in colour, black and white versions.'],
-		['can you work from my sketch or an old logo?', 'yes. send a photo of the sketch, a screenshot or a blurry old file. i redraw it as clean vector, not a trace.'],
+		['can you work from my sketch or an old logo?', 'yes. send a photo of the sketch, a screenshot or a blurry old file. we redraw it as clean vector, not a trace.'],
 		['do you use ai?', 'yes, for mockup photos and some pictures, and every piece that used it says so. logos and type are built by hand as editable vector.'],
-		['do you print?', 'no. you get files your local printer or an online printer can use straight away. i size them to your printer’s specs.'],
+		['do you print?', 'no. you get files your local printer or an online printer can use straight away. we size them to your printer’s specs.'],
 		['what if i don’t like the first draft?', 'tell us what feels off, even in plain words like “too busy” or “more fun”. that is what the two rounds of changes are for.']
 	];
 
@@ -129,7 +129,7 @@
 		<a class="hover:text-accent transition-colors" href="#how">how it works</a>
 		<a class="hover:text-accent transition-colors" href="#web">websites</a>
 	</div>
-	<a href="#start" class="pill pill-gold">get a quote</a>
+	<a href="#start" class="pill pill-gold">start a project</a>
 </nav>
 
 <main>
@@ -147,7 +147,7 @@
 			</h1>
 			<p data-hero class="mt-7 max-w-xl text-lg leading-relaxed text-fg-secondary">
 				{#if data.g}
-					54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0], data.g)}.
+					54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. designs from {money(prices[0], data.g)}.
 				{:else}
 					54 is a design studio. a homepage on your own domain, {money(site_price, data.g)} flat.
 				{/if}
@@ -174,7 +174,7 @@
 			</ul>
 		</div>
 
-		<div bind:this={stack} class="group relative mx-auto aspect-[4/5] w-full max-w-[30rem] lg:col-span-5" aria-label="three recent flyers">
+		<div bind:this={stack} class="group relative mx-auto aspect-[4/5] w-full max-w-[30rem] lg:col-span-5" aria-label="three recent designs">
 			{#each fan as pc, i (pc.s)}
 				<div class="absolute top-[6%] w-[58%] {['left-[0%]', 'left-[21%] z-10', 'left-[42%]'][i]}">
 					<button
@@ -198,7 +198,7 @@
 			<div class="md:col-span-7">
 				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">every logo here hides an idea.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">most are concepts for briefs that businesses posted online. tap one to find its idea.</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">selected work. tap one to find its idea.</p>
 		</div>
 
 		<div class="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="filter work">
@@ -312,7 +312,7 @@
 			<div class="md:col-span-7">
 				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">made for phones first.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">a new homepage on your own domain, live this week. {money(site_price, data.g)} flat, no monthly fees. three sites we built:</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">a new homepage on your own domain, live this week. {money(site_price, data.g)} flat, no monthly fees. three of our products:</p>
 		</div>
 		<div class="grid gap-3 md:grid-cols-3 md:gap-4" use:reveal={{ selector: '> *', stagger: 0.08 }}>
 			{#each sites as x (x.t)}
@@ -361,7 +361,7 @@
 				<a href="mailto:{p.email}" class="pill pill-ghost" use:magnetic={0.2}>email us</a>
 			</div>
 			<p class="mt-8 flex items-center justify-center gap-2.5 text-sm text-fg-muted">
-				<span class="live-dot"></span>it’s {clock || '—'} for us (wat, utc+1)
+				<span class="live-dot"></span>abuja {clock || '—'} (wat, utc+1)
 			</p>
 		</div>
 	</section>
