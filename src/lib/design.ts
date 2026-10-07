@@ -9,7 +9,6 @@ export const kinds = [
 	{ k: 'identity', l: 'brand kits' },
 	{ k: 'packaging', l: 'packaging' },
 	{ k: 'apparel', l: 'apparel' },
-	{ k: 'illustration', l: 'illustration' },
 	{ k: 'motion', l: 'motion' }
 ];
 
@@ -32,7 +31,6 @@ export const work: piece[] = [
 	{ s: 'meridian', t: 'meridian trade', k: 'identity', d: 'a system built around a logo the client already had. cover, card, social, letterhead.', i: [[1920, 1200], [1920, 1200], [1920, 1200], [1920, 1200], [1920, 1200]] },
 	{ s: 'sk', t: 'sk flooring', k: 'logo', d: 'the tick is laid like chevron parquet: three boards meet at a mitred joint.', i: [[2000, 2000]] },
 	{ s: 'clay', t: 'clay towel', k: 'packaging', d: 'set 1:1 on the factory dieline. the dark car wraps from front to sides.', i: [[2000, 1986], [1500, 2000], [1311, 2000]] },
-	{ s: 'bluehour', t: 'lights on at blue hour', k: 'illustration', d: 'a family home painted the moment the lamps come on.', i: [[2000, 1500], [760, 950]] },
 	{ s: 'cpprsj', t: 'racial & social justice center', k: 'logo', d: 'curved bands bend toward justice. logo plus a one-page style sheet.', i: [[2000, 2000], [1600, 2000]] },
 	{ s: 'tachyra', t: 'tachyra diagnostics tee', k: 'apparel', d: 'traced ecg logo on the front, a cartoon physician and a bold url on the back.', i: [[2000, 1600], [1254, 1254]] },
 	{ s: 'codepulse', t: 'codepulse.pro', k: 'logo', d: 'a cursor split into three aligned layers: coding agents working as one.', i: [[1600, 1600], [1600, 1600], [1200, 1600]] },
@@ -42,9 +40,6 @@ export const work: piece[] = [
 	{ s: 'beyond', t: 'beyond boundaries youth', k: 'logo', d: 'the black chevron is the mentor. the blue one breaks through the line.', i: [[2000, 1500]] },
 	{ s: 'instrowest', t: 'instrowest', k: 'motion', d: 'one turn of the needle draws the dial. one click locks it.', i: [[1920, 1080]], v: '/work/instrowest.mp4' },
 	{ s: 'fernhaven', t: 'fernhaven', k: 'logo', d: 'three marks for an over-55 community: fern, leaf, pine. new growth, new chapter.', i: [[1200, 1200], [1200, 1200], [1200, 1200]] },
-	{ s: 'mca', t: '@makeMCAgreatagain', k: 'logo', d: 'the a in mca is a play button turned upward: rising.', i: [[1800, 1200]] },
-	{ s: 'hated', t: 'hated forever', k: 'motion', d: 'key art for a 4k loop: a horde party crossing the barrens at twilight.', i: [[1942, 809]] },
-	{ s: 'staging', t: 'virtual staging', k: 'illustration', d: 'empty rooms, furnished and lit.', i: [[2000, 1333], [2000, 1333], [2000, 1333]] }
 ];
 
 // t = service, u = starting price in usd, n = starting price in naira, d = what you get

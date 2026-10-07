@@ -18,7 +18,7 @@
 		"c": {
 			"drop_pieces": {
 				"s": "four pieces leave the wall: staging, bluehour and hated (ai made most of each, and illustration is not for sale) and mca (it reads as a maga joke).\n1. remove the `work` entries with s 'staging', 'bluehour', 'hated' and 'mca' from src/lib/design.ts.\n2. remove the 'illustration' entry from `kinds`, since no piece uses it after this.\n3. `git rm` their files: static/work/staging-0, -1, -2, -t, bluehour-0, -1, -t, hated-0, -t and mca-0, -t (all .webp).\n4. keep tmg: its pictures are hand vector.\nthe counts derive from `work`, so 27 shows up everywhere by itself.",
-				"d": 0,
+				"d": 1,
 				"v": "test -f static/work/staging-t.webp",
 				"t": "! grep -qE \"s: '(staging|bluehour|hated|mca)'\" src/lib/design.ts && ! grep -qF \"k: 'illustration'\" src/lib/design.ts && test ! -e static/work/staging-t.webp && test ! -e static/work/bluehour-t.webp && test ! -e static/work/hated-t.webp && test ! -e static/work/mca-t.webp && test \"$(grep -c \"{ s: '\" src/lib/design.ts)\" -eq 27 && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
