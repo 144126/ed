@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { work } from '$lib/design';
 	import '@fontsource/geist-sans/400.css';
 	import '@fontsource/geist-sans/500.css';
 	import '@fontsource/geist-sans/600.css';
@@ -32,10 +33,15 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>gold hogan · flyers, posters & logos in 24 hours</title>
-	<meta name="description" content="flyers, posters, logos and brand kits by gold hogan. first draft in 24 hours, cheap flyers, print-ready files you own. 41 real designs to look through." />
-	<meta property="og:title" content="gold hogan · flyers, posters & logos in 24 hours" />
-	<meta property="og:description" content="first draft in 24 hours. flyers, posters and logos at small-business prices. 41 real designs to look through." />
+	<title>gold hogan · logos, flyers and websites</title>
+	<meta name="description" content="logos with an idea inside, flyers drafted in 24 hours, websites made for phones. {work.length} designs to look through." />
+	<meta property="og:title" content="gold hogan · logos, flyers and websites" />
+	<meta property="og:description" content="logos, flyers and websites by gold hogan. first draft in 24 hours. {work.length} designs to look through." />
+	<meta property="og:image" content="https://ed.apexlinks.org/og.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="an event flyer and two logos by gold hogan" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://ed.apexlinks.org" />
 </svelte:head>

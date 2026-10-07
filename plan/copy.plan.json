@@ -90,7 +90,7 @@
 			},
 			"meta_tags": {
 				"s": "search results and share previews tell the truth and never go stale.\n1. in the <svelte:head> of src/routes/+layout.svelte, set the title, description, og:title and og:description from plan/copy-deck.md § meta. the design count is `work.length` imported from $lib/design, never a typed number.\n2. add og:image `https://ed.apexlinks.org/og.jpg`, og:image:width 1200, og:image:height 630, og:image:alt from the deck, and twitter:card summary_large_image.\n3. keep og:type, og:url and the favicon link.",
-				"d": 0,
+				"d": 1,
 				"v": "test -f static/og.jpg",
 				"t": "grep -qF 'gold hogan · logos, flyers and websites' src/routes/+layout.svelte && grep -qF 'https://ed.apexlinks.org/og.jpg' src/routes/+layout.svelte && grep -qF 'summary_large_image' src/routes/+layout.svelte && grep -qF 'work.length' src/routes/+layout.svelte && ! grep -qE 'cheap|41 real' src/routes/+layout.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
