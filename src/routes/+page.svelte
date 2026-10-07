@@ -17,7 +17,7 @@
 		{ t: 'beee chess championship', u: 'https://beeeproject.com', d: 'sign-ups and payments for an inter-school chess tournament in abuja.' },
 		{ t: 'e4 chess coach', u: 'https://e4.apexlinks.org', d: 'my own free chess coach. it explains every move, from zero.' }
 	];
-	const fan = ['trinh', 'e4', 'beee'].map((s) => work.find((w) => w.s === s)!);
+	const fan = ['trinh', 'e4', 'chicklet'].map((s) => work.find((w) => w.s === s)!);
 
 	const steps = [
 		['tell me what you need', 'the text, the size, the deadline, and any logo or photos you have. a voice note is fine.'],

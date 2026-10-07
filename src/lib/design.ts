@@ -6,8 +6,7 @@ export type piece = { s: string; t: string; k: string; c: string; d: string; i: 
 export const kinds = [
 	{ k: 'print', l: 'flyers & print' },
 	{ k: 'logo', l: 'logos' },
-	{ k: 'identity', l: 'brand kits' },
-	{ k: 'packaging', l: 'packaging' }
+	{ k: 'identity', l: 'brand kits' }
 ];
 
 export const work: piece[] = [
@@ -16,16 +15,12 @@ export const work: piece[] = [
 	{ s: 'oktai', t: 'oktai', k: 'logo', c: 'ai agent startup', d: 'an octopus with a screen for a face. six arms, one mind.', i: [[1800, 1800], [1800, 1800], [1800, 1800]] },
 	{ s: 'e4', t: 'e4 chess coach', k: 'print', c: 'my own chess app', d: 'two a5 flyers. one pawn, one move, one url. the second has tear-off url strips.', i: [[1240, 1754], [1240, 1754]] },
 	{ s: 'bioburger', t: 'bio burger', k: 'identity', c: 'burger restaurant', d: 'the logo is the burger. branded on the bun, the shopfront and the bag. ai made those three photos.', i: [[2000, 1333], [1536, 1024], [1536, 1024], [1536, 1024], [2000, 1333]] },
-	{ s: 'beee', t: 'beee partner schools', k: 'print', c: 'school chess tournament', d: 'a4 flyer that asks schools one thing: join. four benefits, a qr code and a phone number.', i: [[1415, 2000]] },
 	{ s: 'nikkan', t: 'nikkan auto', k: 'identity', c: 'auto parts shop', d: 'name, mark and guide. two hex nuts linked: japanese and korean parts in one shop.', i: [[1600, 1600], [1600, 1600], [1200, 1600], [1600, 1600]] },
 	{ s: 'trinh', t: 'cơm tấm cô trinh', k: 'print', c: 'vietnamese restaurant', d: 'the shop sign for a broken-rice kitchen, in ivory and jade. ai made the storefront photo.', i: [[2000, 2000], [2000, 2000]] },
 	{ s: 'cd', t: 'custom prints & designs', k: 'logo', c: 'print shop', d: 'the p and the d are one shape turned upside down. the c weaves through both.', i: [[1200, 1200]] },
 	{ s: 'domus', t: 'domus student residence', k: 'logo', c: 'student housing', d: 'the building’s own windows draw the logo. the lit ones make a heart.', i: [[1600, 1200], [1600, 1200]] },
 	{ s: 'orange', t: 'orange creative', k: 'logo', c: 'creative studio', d: 'the o of orange breaks open into the c of creative, like an idea getting out.', i: [[1600, 1200], [2000, 813], [2000, 813]] },
 	{ s: 'meridian', t: 'meridian trade', k: 'identity', c: 'pharma trading company', d: 'a system built around a logo the client already had. cover, card, social, letterhead.', i: [[1920, 1200], [1920, 1200], [1920, 1200], [1920, 1200], [1920, 1200]] },
-	{ s: 'clay', t: 'clay towel', k: 'packaging', c: 'car care brand', d: 'fits the factory’s box template exactly. the dark car wraps from the front onto the sides. ai made the car picture.', i: [[2000, 1986], [1500, 2000], [1311, 2000]] },
-	{ s: 'cpprsj', t: 'racial & social justice center', k: 'logo', c: 'university center', d: 'curved bands bend toward justice. logo plus a one-page style sheet.', i: [[2000, 2000], [1600, 2000]] },
-	{ s: 'codepulse', t: 'codepulse.pro', k: 'logo', c: 'ai coding tool', d: 'a cursor split into three aligned layers: coding agents working as one.', i: [[1600, 1600], [1600, 1600], [1200, 1600]] },
 	{ s: 'playe', t: 'playe money', k: 'logo', c: 'kids’ gifting app', d: 'a pinwheel is a p on a stick. one breath sets it spinning.', i: [[2000, 1333]] },
 	{ s: 'beyond', t: 'beyond boundaries youth', k: 'logo', c: 'youth mentoring program', d: 'the black chevron is the mentor. the blue one breaks through the line.', i: [[2000, 1500]] },
 	{ s: 'fernhaven', t: 'fernhaven', k: 'logo', c: 'over-55 community', d: 'three marks for an over-55 community: fern, leaf, pine. new growth, new chapter.', i: [[1200, 1200], [1200, 1200], [1200, 1200]] },
