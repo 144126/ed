@@ -60,7 +60,7 @@
 			},
 			"section_headings": {
 				"s": "section tops say something instead of wearing template labels.\n1. in src/routes/+page.svelte, delete all six eyebrow paragraphs (the `<p class=\"label ...\">0N · ...</p>` lines), and delete the `.label` rule in src/routes/layout.css. nothing else uses it.\n2. replace the h2 and the side paragraph of the work, prices, start, websites and questions sections with plan/copy-deck.md § sections, verbatim. the how-it-works h2 stays.\n3. the website amount comes from `money(site_price, data.g)`. the naira or us dollars word comes from `data.g`.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF '01 · work' src/routes/+page.svelte",
 				"t": "! grep -qF 'class=\"label' src/routes/+page.svelte && ! grep -qF '.label {' src/routes/layout.css && grep -qF 'every logo here hides an idea.' src/routes/+page.svelte && grep -qF 'most are concepts for briefs' src/routes/+page.svelte && grep -qF 'you know the price before i start.' src/routes/+page.svelte && grep -qF 'pick two things. your message writes itself.' src/routes/+page.svelte && grep -qF 'made for phones first.' src/routes/+page.svelte && grep -qF 'three sites i built:' src/routes/+page.svelte && grep -qF '>questions.<' src/routes/+page.svelte && ! grep -qE 'real brief|no surprises|good to know|sveltekit|tap three' src/routes/+page.svelte && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},

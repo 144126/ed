@@ -128,12 +128,6 @@
 		border-radius: var(--radius-card);
 	}
 
-	.label {
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		letter-spacing: 0.08em;
-		color: var(--color-accent);
-	}
 
 	.tile-img {
 		border-radius: var(--radius-tile);

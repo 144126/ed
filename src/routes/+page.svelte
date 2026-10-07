@@ -190,10 +190,9 @@
 	<section id="work" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="mb-10 grid items-end gap-6 md:grid-cols-12" use:reveal>
 			<div class="md:col-span-7">
-				<p class="label mb-4">01 · work</p>
-				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">every design here was made for a real brief.</h2>
+				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">every logo here hides an idea.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">contest entries and paid jobs, each built for a real brief. tap any one to see every board.</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">most are concepts for briefs that businesses posted online. tap one to find its idea.</p>
 		</div>
 
 		<div class="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="filter work">
@@ -228,10 +227,9 @@
 	<section id="prices" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="mb-12 grid items-end gap-6 md:grid-cols-12" use:reveal>
 			<div class="md:col-span-7">
-				<p class="label mb-4">02 · prices</p>
-				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">clear prices. no surprises.</h2>
+				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">you know the price before i start.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">starting prices in {data.g ? 'naira' : 'usd'}. you get a fixed quote for your exact job before anything starts.</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">starting prices in {data.g ? 'naira' : 'us dollars'}. tap one to start.</p>
 		</div>
 		<div class="grid gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3" use:reveal={{ selector: '> *', stagger: 0.06 }}>
 			{#each prices as x (x.t)}
@@ -250,7 +248,6 @@
 
 	<section id="how" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="mb-12" use:reveal>
-			<p class="label mb-4">03 · how it works</p>
 			<h2 class="max-w-3xl text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">from message to finished files in four steps.</h2>
 		</div>
 		<ol class="grid gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-4" use:reveal={{ selector: '> *', stagger: 0.08 }}>
@@ -267,8 +264,7 @@
 	<section id="start" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="card grid gap-10 p-6 md:p-12 lg:grid-cols-12 lg:gap-12" use:reveal>
 			<div class="lg:col-span-7">
-				<p class="label mb-4">04 · start</p>
-				<h2 class="text-[clamp(2rem,4vw,3.5rem)] leading-[1] font-medium tracking-[-0.04em]">tap three things. your message writes itself.</h2>
+				<h2 class="text-[clamp(2rem,4vw,3.5rem)] leading-[1] font-medium tracking-[-0.04em]">pick two things. your message writes itself.</h2>
 
 				<p class="mt-10 mb-3 text-sm text-fg-muted">what do you need?</p>
 				<div class="flex flex-wrap gap-2">
@@ -308,10 +304,9 @@
 	<section id="web" class="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-20 md:px-8 md:py-28">
 		<div class="mb-12 grid items-end gap-6 md:grid-cols-12" use:reveal>
 			<div class="md:col-span-7">
-				<p class="label mb-4">05 · websites</p>
-				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">i also build the website.</h2>
+				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">made for phones first.</h2>
 			</div>
-			<p class="text-fg-secondary md:col-span-5 md:text-right">6 years building fast web apps with sveltekit. live sites below. websites start from {money(site_price, data.g)}.</p>
+			<p class="text-fg-secondary md:col-span-5 md:text-right">a new homepage on your own domain, live this week. {money(site_price, data.g)} flat, no monthly fees. three sites i built:</p>
 		</div>
 		<div class="grid gap-3 md:grid-cols-3 md:gap-4" use:reveal={{ selector: '> *', stagger: 0.08 }}>
 			{#each sites as x (x.t)}
@@ -334,8 +329,7 @@
 	<section class="mx-auto max-w-[1440px] px-4 py-20 md:px-8 md:py-28">
 		<div class="grid gap-10 lg:grid-cols-12">
 			<div class="lg:col-span-4" use:reveal>
-				<p class="label mb-4">06 · questions</p>
-				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">good to know.</h2>
+				<h2 class="text-[clamp(2.25rem,4.6vw,4rem)] leading-[1] font-medium tracking-[-0.04em]">questions.</h2>
 			</div>
 			<div class="flex flex-col gap-3 lg:col-span-8" use:reveal={{ selector: '> *', stagger: 0.05 }}>
 				{#each faqs as [q, a] (q)}
