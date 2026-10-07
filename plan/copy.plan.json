@@ -104,7 +104,7 @@
 	},
 	"outreach_signature": {
 		"s": "future cold emails and drafts are signed gold hogan, like the site.\n1. in $HOME/.client-hunt/.env, change only the FROM_NAME line to `FROM_NAME=Gold Hogan`, with sed. never print that file: it holds the gmail app password.\n2. in $HOME/.agents/skills/client-hunt/send.py, both 'Ed Hogan' defaults become 'Gold Hogan'.\n3. in $HOME/.agents/skills/client-hunt/SKILL.md, `FROM_NAME=Ed Hogan` becomes `FROM_NAME=Gold Hogan`.\n4. in $HOME/.agents/skills/client-hunt/render.py, the draft note's name comes from the env FROM_NAME the way send.py reads it, with default 'Gold Hogan'.\n5. never re-render or redeploy the existing drafts in ~/i/dump: the 20 sent emails say ed hogan.\ncommit in ~/.agents only these three files (that repo has unrelated changes), then push.",
-		"d": 0,
+		"d": 1,
 		"v": "grep -qF 'Ed Hogan' $HOME/.agents/skills/client-hunt/send.py",
 		"t": "grep -qx 'FROM_NAME=Gold Hogan' $HOME/.client-hunt/.env && ! grep -qF 'Ed Hogan' $HOME/.agents/skills/client-hunt/send.py $HOME/.agents/skills/client-hunt/SKILL.md $HOME/.agents/skills/client-hunt/render.py && grep -qF 'FROM_NAME' $HOME/.agents/skills/client-hunt/render.py && python3 -I -c \"import ast, sys; [ast.parse(open(f).read()) for f in sys.argv[1:]]\" $HOME/.agents/skills/client-hunt/send.py $HOME/.agents/skills/client-hunt/render.py"
 	},
