@@ -100,9 +100,9 @@
 		</div>
 		<div data-lb-text class="md:col-span-5 flex flex-col md:items-end gap-4">
 			{#if g}
-				<a href="{p.whatsapp}?text={encodeURIComponent(`hi gold. i saw "${pc.t}" on your site and i want something like it.`)}" target="_blank" rel="noopener noreferrer" class="pill pill-gold self-start md:self-end">want one like this? →</a>
+				<a href="{p.whatsapp}?text={encodeURIComponent(`hi 54. i saw "${pc.t}" on your site and i want something like it.`)}" target="_blank" rel="noopener noreferrer" class="pill pill-gold self-start md:self-end">want one like this? →</a>
 			{:else}
-				<a href="mailto:{p.email}?subject={encodeURIComponent(`something like "${pc.t}"`)}&body={encodeURIComponent(`hi gold. i saw "${pc.t}" on your site and i want something like it.`)}" class="pill pill-gold self-start md:self-end">want one like this? →</a>
+				<a href="mailto:{p.email}?subject={encodeURIComponent(`something like "${pc.t}"`)}&body={encodeURIComponent(`hi 54. i saw "${pc.t}" on your site and i want something like it.`)}" class="pill pill-gold self-start md:self-end">want one like this? →</a>
 			{/if}
 			<div class="flex md:justify-end gap-2 flex-wrap">
 			{#each slides as s, j}

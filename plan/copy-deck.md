@@ -1,4 +1,4 @@
-# copy deck: ed.apexlinks.org
+# copy deck: 54.apexlinks.org
 
 Every string here is final. Paste it verbatim and write none of your own.
 Money is never typed: `{money(prices[0])}` means `money(prices[0], data.g)` and `{money(site_price)}` means `money(site_price, data.g)`.
@@ -11,7 +11,7 @@ The badge stays the same for both versions: `taking new work this week`
 ### nigeria (`data.g` true)
 
 - h1: `send your text tonight. see your flyer <span class="text-accent">tomorrow.</span>`
-- intro: `i’m gold, a graphic designer. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0])}.`
+- intro: `54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0])}.`
 - button 1: gold, `p.whatsapp`, new tab, as it is now: `message me on whatsapp`
 - button 2: ghost, `#work`, as it is now: `see {work.length} designs ↓`
 - stats:
@@ -22,8 +22,8 @@ The badge stays the same for both versions: `taking new work this week`
 ### everyone else (`data.g` false)
 
 - h1: `your new homepage, live <span class="text-accent">this week.</span>`
-- intro: `i’m gold, a designer who builds websites. a homepage on your own domain, {money(site_price)} flat.`
-- button 1: gold: `email me`. Its href is `mailto:{p.email}`, with subject `a new homepage` and body `hi gold, i found your site. i want a new homepage.\n\nmy current site: ` (`\n` is a newline). Url-encode both, the way the start form's mailto does.
+- intro: `54 is a design studio. a homepage on your own domain, {money(site_price)} flat.`
+- button 1: gold: `email me`. Its href is `mailto:{p.email}`, with subject `a new homepage` and body `hi 54, i found your site. i want a new homepage.\n\nmy current site: ` (`\n` is a newline). Url-encode both, the way the start form's mailto does.
 - button 2: ghost, `#web`: `see live sites ↓`
 - stats:
   - `made for <span class="text-fg">phones</span>`
@@ -123,13 +123,13 @@ The "side" text is the paragraph beside each h2. The how-it-works h2 and its ste
 ## messages
 
 - start form `message` (`\n` is a newline, and the details line is added only when there is a note):
-  `hi gold, i found your site.\n\ni need: {want}\nwhen: {when}` then `\ndetails: {note}`
-- lightbox "want one like this?" prefill: `hi gold. i saw "{pc.t}" on your site and i want something like it.`
+  `hi 54, i found your site.\n\ni need: {want}\nwhen: {when}` then `\ndetails: {note}`
+- lightbox "want one like this?" prefill: `hi 54. i saw "{pc.t}" on your site and i want something like it.`
 - lightbox email subject, used when the link is a mailto: `something like "{pc.t}"`
 
 ## meta
 
-- title and og:title: `gold hogan · logos, flyers and websites`
+- title and og:title: `54 · design studio`
 - description: `logos with an idea inside, flyers drafted in 24 hours, websites made for phones. {work.length} designs to look through.`
-- og:description: `logos, flyers and websites by gold hogan. first draft in 24 hours. {work.length} designs to look through.`
-- og:image:alt: `an event flyer and two logos by gold hogan`
+- og:description: `logos, flyers and websites by 54. first draft in 24 hours. {work.length} designs to look through.`
+- og:image:alt: `a flyer and two logos by 54`

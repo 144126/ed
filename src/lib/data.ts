@@ -1,6 +1,6 @@
 export const p = {
-	name: 'Gold Edem Hogan',
-	title: 'graphic designer & web developer',
+	name: '54',
+	title: 'design studio',
 	email: '1440fl@gmail.com',
 	phone: '+234 811 871 8106',
 	whatsapp: 'https://wa.me/2348118718106',

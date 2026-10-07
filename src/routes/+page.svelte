@@ -39,7 +39,7 @@
 	let want = $state('flyer or poster');
 	let when = $state('in 2–3 days');
 	let note = $state('');
-	const message = $derived(`hi gold, i found your site.\n\ni need: ${want}\nwhen: ${when}${note.trim() ? `\ndetails: ${note.trim()}` : ''}`);
+	const message = $derived(`hi 54, i found your site.\n\ni need: ${want}\nwhen: ${when}${note.trim() ? `\ndetails: ${note.trim()}` : ''}`);
 
 	let filter = $state('all');
 	let vw = $state(1440);
@@ -122,7 +122,7 @@
 <svelte:window bind:innerWidth={vw} />
 
 <nav class="fixed top-3 inset-x-3 md:top-4 md:inset-x-6 z-50 flex items-center justify-between gap-3 rounded-full border border-border bg-bg/80 py-2 pl-5 pr-2 backdrop-blur-md">
-	<a href="/" class="font-medium tracking-tight text-fg">gold hogan</a>
+	<a href="/" class="font-medium tracking-tight text-fg">54</a>
 	<div class="hidden md:flex items-center gap-7 text-sm text-fg-secondary">
 		<a class="hover:text-accent transition-colors" href="#work">work</a>
 		<a class="hover:text-accent transition-colors" href="#prices">prices</a>
@@ -147,9 +147,9 @@
 			</h1>
 			<p data-hero class="mt-7 max-w-xl text-lg leading-relaxed text-fg-secondary">
 				{#if data.g}
-					i’m gold, a graphic designer. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0], data.g)}.
+					54 is a design studio. send your text and your deadline on whatsapp. a voice note is fine. flyers from {money(prices[0], data.g)}.
 				{:else}
-					i’m gold, a designer who builds websites. a homepage on your own domain, {money(site_price, data.g)} flat.
+					54 is a design studio. a homepage on your own domain, {money(site_price, data.g)} flat.
 				{/if}
 			</p>
 			<div data-hero class="mt-9 flex flex-wrap gap-3">
@@ -157,7 +157,7 @@
 					<a href={p.whatsapp} target="_blank" rel="noopener noreferrer" class="pill pill-gold" use:magnetic={0.2}>message me on whatsapp</a>
 					<a href="#work" class="pill pill-ghost">see {work.length} designs ↓</a>
 				{:else}
-					<a href="mailto:{p.email}?subject={encodeURIComponent('a new homepage')}&body={encodeURIComponent('hi gold, i found your site. i want a new homepage.\n\nmy current site: ')}" class="pill pill-gold" use:magnetic={0.2}>email me</a>
+					<a href="mailto:{p.email}?subject={encodeURIComponent('a new homepage')}&body={encodeURIComponent('hi 54, i found your site. i want a new homepage.\n\nmy current site: ')}" class="pill pill-gold" use:magnetic={0.2}>email me</a>
 					<a href="#web" class="pill pill-ghost">see live sites ↓</a>
 				{/if}
 			</div>
@@ -368,7 +368,7 @@
 </main>
 
 <footer class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-4 px-4 pb-10 text-sm text-fg-muted md:px-8">
-	<p>© {new Date().getFullYear()} gold edem hogan</p>
+	<p>© {new Date().getFullYear()} 54</p>
 	<div class="flex gap-6">
 		<a class="hover:text-accent transition-colors" href="#work">back to the work ↑</a>
 	</div>
