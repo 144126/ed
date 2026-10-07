@@ -80,7 +80,7 @@
 	},
 	"head": {
 		"s": "the share preview and the tab icon",
-		"d": 0,
+		"d": 1,
 		"c": {
 			"og_image": {
 				"s": "a 1200x630 share image shows three real designs.\n1. write static/og.jpg: background #0b0a08, with three 360x360 tiles centre-cropped from static/work/udens-t.webp, oktai-t.webp and bioburger-t.webp, left to right. 30px gaps, 30px side margins, centred vertically. no text.\n2. make it with system python3 and PIL (already installed) as a one-off script in your scratch dir. the script never enters the repo.\n3. jpeg at about quality 85, under 300 kB, because whatsapp drops bigger preview images.\nopen the jpg and look at it before marking.",
@@ -96,7 +96,7 @@
 			},
 			"favicon": {
 				"s": "the tab icon is a gold dot instead of the default svelte logo.\nreplace the whole of src/lib/assets/favicon.svg with exactly this one line:\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><circle cx=\"16\" cy=\"16\" r=\"15\" fill=\"#e2b65c\"/></svg>\n#e2b65c is --color-accent in src/routes/layout.css. src/routes/+layout.svelte already imports the file, so nothing else changes.",
-				"d": 0,
+				"d": 1,
 				"v": "grep -qF 'svelte-logo' src/lib/assets/favicon.svg",
 				"t": "grep -qF 'fill=\"#e2b65c\"' src/lib/assets/favicon.svg && ! grep -qiF 'svelte' src/lib/assets/favicon.svg && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			}
