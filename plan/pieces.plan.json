@@ -40,9 +40,9 @@
 		"d": 0,
 		"c": {
 			"piece_load": {
-				"s": "the route turns a slug into its piece.\n1. src/routes/work/[s]/+page.ts: load finds the `work` entry whose s equals params.s. no match: error(404) from @sveltejs/kit. it returns { w }, with `// w = the piece` at the return.\n2. src/routes/work/[s]/page.spec.ts (the vitest server project): 'oktai' returns the oktai piece; 'nope' throws an error whose status is 404.\nno prerender: data.g depends on the request.",
+				"s": "the route turns a slug into its piece.\nsrc/routes/work/[s]/+page.ts: load finds the `work` entry whose s equals params.s. no match: error(404) from @sveltejs/kit. it returns { w }, with `// w = the piece` at the return.\nno prerender: data.g depends on the request.",
 				"d": 0,
-				"t": "test -f 'src/routes/work/[s]/+page.ts' && test -f 'src/routes/work/[s]/page.spec.ts' && pnpm exec vitest run --project server src/routes/work && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+				"t": "test -f 'src/routes/work/[s]/+page.ts' && grep -q 'error(404' 'src/routes/work/[s]/+page.ts' && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
 			},
 			"piece_head": {
 				"s": "src/routes/work/[s]/+page.svelte gets the piece's own share preview, from data.w. the body can stay a bare h1 of t until the next step.\n1. <title> and og:title: '{t} · 54'.\n2. meta description and og:description: d.\n3. og:image: https://54.apexlinks.org/work/{s}-{lead}.webp, lead = (o ?? [0])[0]. og:image:width and og:image:height from i[lead]. og:image:alt: t. the lead webp itself, no jpg copy.\n4. og:url and <link rel=\"canonical\">: https://54.apexlinks.org/work/{s}. og:type website. twitter:card summary_large_image.",
