@@ -112,7 +112,7 @@ The "side" text is the paragraph beside each h2. The how-it-works h2 and its ste
 
 - marquee items, in this order: `flyers`, `logos`, `brand kits`, `websites`, `labels`, `packaging`, `t-shirts`, `social posts`, `menus`, `signage`
 - the `d` of each site in `sites`:
-  - y2: `our real-time social app: posts, rooms, dms, voice and video calls.` This site was x2. It was renamed on 2026-10-07, and x2.apexlinks.org now 301s to it, so its `t` becomes `y2` and its `u` becomes `https://y2.apexlinks.org`.
+  - x3: `our real-time social app: posts, rooms, dms, voice and video calls.` This site was x2, then y2. It was renamed to x3 on 2026-10-09, and x2/y2.apexlinks.org now 301 to it, so its `t` becomes `x3` and its `u` becomes `https://x3.apexlinks.org`.
   - beee chess championship: `sign-ups and payments for an inter-school chess tournament in abuja.`
   - e4 chess coach: `our free chess coach. it explains every move, from zero.`
 - faq answers (the questions stay the same):

@@ -36,11 +36,11 @@ export const skills = [
 
 export const projects = [
 	{
-		title: 'x2',
-		desc: 'Real-time social app: a public board where posts carry your name or go anonymous, plus rooms and DMs with reactions, stickers, voice and video calls, push notifications, and streaming AI threads. Random voice match pairs strangers by interest using embeddings.',
+		title: 'x3',
+		desc: 'Real-time social app: a public board, plus rooms and DMs with reactions, stickers, voice and video calls, push notifications, and streaming AI threads. Voice match pairs people by interest using embeddings.',
 		tags: ['SvelteKit', 'Cloudflare Workers', 'Durable Objects', 'WebRTC', 'Qdrant', 'AI SDK'],
-		url: 'https://x2.apexlinks.org',
-		github: 'https://github.com/144126/x2'
+		url: 'https://x3.apexlinks.org',
+		github: 'https://github.com/144126/y2'
 	},
 	{
 		title: 'BEEE Spectacular Chess Championship',
