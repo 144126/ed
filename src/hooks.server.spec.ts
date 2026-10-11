@@ -40,4 +40,16 @@ describe('hosts that are not 54', () => {
 		expect(r).toBeInstanceOf(Response);
 		expect(r.status).toBe(200);
 	});
+
+	it('leaves localhost alone', async () => {
+		const r = await run('http://localhost:9270/');
+		expect(r).toBeInstanceOf(Response);
+		expect(r.status).toBe(200);
+	});
+
+	it('leaves a preview url alone', async () => {
+		const r = await run('https://abc123-ed.apexlinks.workers.dev/');
+		expect(r).toBeInstanceOf(Response);
+		expect(r.status).toBe(200);
+	});
 });

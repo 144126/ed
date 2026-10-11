@@ -7,16 +7,7 @@ interface RevealOpts {
 }
 
 export function reveal(node: HTMLElement, opts: RevealOpts = {}) {
-	if (usesReducedMotion()) {
-		gsap.set(node, { opacity: 1, y: 0 });
-		if (opts.selector) {
-			node.querySelectorAll(opts.selector).forEach((el) => {
-				(el as HTMLElement).style.opacity = '1';
-				(el as HTMLElement).style.transform = 'none';
-			});
-		}
-		return;
-	}
+	if (usesReducedMotion()) return;
 
 	const { y = 40, stagger = 0, selector: rawSelector } = opts;
 	const selector = rawSelector?.startsWith('>') ? `:scope ${rawSelector}` : rawSelector;
