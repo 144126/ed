@@ -1,0 +1,178 @@
+{
+	"_": "repo ~/i/ed is 54, a design and software studio, live at https://54.apexlinks.org. ed.apexlinks.org and ed.apexlinks.workers.dev 301 there. push to main deploys (workers builds: pnpm run build, then pnpm exec wrangler deploy).\nstack: sveltekit (next), svelte 5 runes only, tailwind 4 (tokens in the @theme of src/routes/layout.css), adapter-cloudflare workers, pnpm 11, node 24.\ngoal: the site shows websites, apps and software as clearly as design.\nsettled, never revisit:\n- software lives in the same `work` list in src/lib/design.ts as design, kind 'app'. one wall, one lightbox, one piece page.\n- data.g (visitor in nigeria) changes only currency and main contact (whatsapp vs email). never the offer or the order.\n- every user-facing string comes verbatim from plan/studio-deck.md. never write copy. all lowercase, no emoji, ’ for apostrophes.\n- images: static/work/{s}-{n}.webp slides, {s}-t.webp 960w thumb.\nfiles: src/lib/design.ts (piece type, work, kinds, prices, money), src/lib/data.ts (p = contact), src/routes/+page.svelte (home), src/routes/+page.server.ts (data.g), src/routes/+layout.svelte, src/lib/components/Lightbox.svelte, src/hooks.server.ts, src/routes/layout.css.\ncode rules: snake_case. single-letter keys for data, types, json and load returns, each commented at its definition. no comments except a non-obvious why. no single-use variables. tailwind utilities and the existing classes (pill pill-gold pill-ghost chip card tile tile-img); no new css file, no inline style=, no raw hex outside the @theme. pnpm only, never npm or npx.\ntraps: pnpm check runs wrangler types --check and fails on a fresh tree, so gates run svelte-check then build. a dev server may run: ss -ltnp | grep 9270; reuse it, else pnpm dev; it listens on [::1], use http://localhost:9270. /?c=ng and /?c=us preview each country. look with ab-1440fl --session studio --pin-tab (headless); screenshots to ~/.local/state/54-studio/. e2e (testerarmy) docs: node_modules/e2e/docs.\nnever stage .log, .dev-logs/server.log or static/macro/ (unrelated). stash@{0} is an old pivot Ed set aside: never pop, apply or drop it.\nafter each mark: commit only the step's files plus plan/studio.plan.json, plan/studio.log, plan/studio.notes.md. message `<feat|fix|chore>(studio): <imperative, lowercase, max 50>`, blank line, `- ` bullets, trailer `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. then git push: push deploys to production.",
+	"base": {
+		"s": "the site renders everywhere, and the repo tells the truth",
+		"d": 0,
+		"c": {
+			"render_everywhere": {
+				"s": "the site renders for every visitor and on every host.\n1. src/lib/actions/reveal.ts: under reduced motion, `reveal` returns at once. nothing is hidden in that mode, and the old branch passed '> *' raw to querySelectorAll, which threw and made the live page a 500 for every visitor with reduce motion on.\n2. src/hooks.server.ts: 301 only GET/HEAD on the old hosts ed.apexlinks.org and ed.apexlinks.workers.dev, path and query kept. every other host passes, so localhost, wrangler preview and preview urls render.\n3. src/hooks.server.spec.ts: add 'leaves localhost alone' (http://localhost:9270/) and 'leaves a preview url alone' (https://abc123-ed.apexlinks.workers.dev/), both 200.\nlook: http://localhost:9270/?c=us with ab-1440fl after `set media dark reduced-motion` shows the h1, not a 500.",
+				"d": 1,
+				"t": "grep -qF 'if (usesReducedMotion()) return;' src/lib/actions/reveal.ts && ! grep -qF 'querySelectorAll(opts.selector)' src/lib/actions/reveal.ts && grep -qF 'ed.apexlinks.workers.dev' src/hooks.server.ts && grep -qF 'localhost' src/hooks.server.spec.ts && pnpm exec vitest run --project server && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build"
+			},
+			"smoke": {
+				"s": "a deterministic smoke suite (testerarmy e2e, no agent steps, no model) guards every later step.\n1. pnpm add -D e2e@^0.17.0 @e2e-dev/web@^0.12.0. remove @playwright/test and playwright.config.ts.\n2. e2e.config.ts: targets desktop web({ viewport 1440x900 }) and phone web({ viewport 390x844 }), both app { url 'http://localhost:4173', command { executable 'pnpm', args ['preview'], reuseExisting false, startupTimeout 120000, log '.e2e/logs/app.log' } }.\n3. tests/site.e2e.ts: for /?c=us and /?c=ng, each with motion and with reduced motion (an init script makes matchMedia report true for 'prefers-reduced-motion', with no-op listener methods): the h1 is visible, 'Internal Error' never appears, #work has at least 10 .tile, and document scrollWidth <= innerWidth. structure only, never copy.\n4. package.json: test:e2e = 'pnpm build && e2e run', test = 'pnpm test:unit --run && pnpm test:e2e'. .gitignore gets .e2e/.",
+				"d": 0,
+				"t": "test -f e2e.config.ts && test -f tests/site.e2e.ts && test ! -f playwright.config.ts && ! grep -qF 'npm run' package.json && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"truthful_repo": {
+				"s": "docs match the site, and dead files are gone.\n1. DESIGN.md: rewrite from the @theme and component classes in src/routes/layout.css and how src/routes/+page.svelte uses them (colours, radii, type sizes of h1/h2, pill, chip, card, tile, motion rule: reduced motion shows everything). drop all xAI, navy, green, 0-radius content.\n2. README.md: what the repo is, `pnpm dev` (localhost:9270, ?c=ng / ?c=us), `pnpm test:e2e`, deploy = push to main. ten lines at most.\n3. delete awwwards-plan.md, i/, src/lib/vitest-examples/, src/lib/index.ts, and the `skills` and `projects` exports in src/lib/data.ts.\n4. git rm --cached .dev-logs/server.log; .gitignore gets .dev-logs/ and .log.",
+				"d": 0,
+				"t": "! grep -qF '#0a0e17' DESIGN.md && grep -qF '#e2b65c' DESIGN.md && test ! -e awwwards-plan.md && test ! -d i && test ! -d src/lib/vitest-examples && ! grep -qE 'export const (skills|projects)' src/lib/data.ts && ! git ls-files --error-unmatch .dev-logs/server.log 2>/dev/null && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"lint_green": {
+				"s": "pnpm lint passes, so every later gate can hold it.\n1. pnpm format once, over the whole repo.\n2. eslint.config.js ignores worker-configuration.d.ts.\n3. fix the remaining eslint errors without changing behaviour (no `any`: type window.__lenis through a declared global or a narrow cast; no bare expression statements: read reactive deps with `void`).\nfrom this step on, run pnpm exec prettier --write on every file you touch.",
+				"d": 0,
+				"t": "pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"calm": {
+		"s": "drop the ornament: faster on cheap phones, nothing to crash",
+		"d": 0,
+		"c": {
+			"drop_ornament": {
+				"s": "the page scrolls natively and shows everything at once.\n1. remove lenis (the layout effect and the dependency), src/lib/components/Cursor.svelte, src/lib/actions/magnetic.ts, src/lib/components/Marquee.svelte and its use, src/lib/actions/reveal.ts and every use:reveal, the hero SplitText timeline, the wall's ScrollTrigger batch, and every data-cursor-label.\n2. src/lib/motion.ts exports only gsap and usesReducedMotion; Lightbox.svelte keeps its gsap open/close.\n3. layout.css: html scroll-behavior smooth inside @media (prefers-reduced-motion: no-preference). sections keep scroll-mt-24 for the fixed nav.",
+				"d": 0,
+				"t": "! grep -rqE 'lenis|Cursor|magnetic|Marquee|use:reveal|SplitText|ScrollTrigger|data-cursor' src && ! grep -qF '\"lenis\"' package.json && test ! -f src/lib/actions/reveal.ts && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"software": {
+		"s": "software joins the work",
+		"d": 0,
+		"c": {
+			"app_shots": {
+				"s": "real screenshots of the six apps, logged out.\n1. scripts/shots.mjs (node, the playwright package already installed, a fresh context so no cookies): for each row of deck §software pieces, open u, wait for load plus 4 s, mute media; save png to ~/.local/state/54-studio/shots/{s}-desktop.png at 1440x900 scale 2 and {s}-phone.png at 390x844 scale 2, viewport only.\n2. cwebp -q 82: desktop → static/work/{s}-0.webp resized 2000x1250, phone → {s}-1.webp 780x1688, desktop → {s}-t.webp 960x600.\n3. package.json script shots = 'node scripts/shots.mjs'.\nlook at every -t.webp: no cookie banner, spinner or blank screen. if one shows, raise its wait; still wrong, block.",
+				"d": 0,
+				"t": "for s in x3 e4-coach beee zai devcircles calm; do file static/work/$s-0.webp | grep -qF '2000x1250' && file static/work/$s-1.webp | grep -qF '780x1688' && file static/work/$s-t.webp | grep -qF '960x600' || exit 1; done && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"app_pieces": {
+				"s": "the six software pieces are on the wall.\n1. the piece type gets optional u (live url) and b (built with), each added to the key comment above it.\n2. kinds get { k: 'app', l: 'websites & apps' } first.\n3. add the six entries from deck §software pieces, and put all twenty in deck §wall order.\n4. the e4 flyer piece gets t 'e4 flyers'.",
+				"d": 0,
+				"v": "test -f static/work/x3-0.webp",
+				"t": "test \"$(grep -c \"{ s: '\" src/lib/design.ts)\" -eq 20 && test \"$(grep -c \"k: 'app'\" src/lib/design.ts)\" -ge 7 && grep -qF \"t: 'e4 flyers'\" src/lib/design.ts && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"lightbox_live": {
+				"s": "the lightbox sells software too.\n1. under d, when pc.b: b in font-mono text-xs text-fg-muted.\n2. beside 'want one like this? →', when pc.u: pill pill-ghost 'visit the live site ↗' → pc.u, new tab, rel noopener noreferrer.\n3. tests/site.e2e.ts: tapping the x3 tile shows 'visit the live site ↗'.\nlook at the x3 lightbox at 1440 and 390: the tall phone slide fits the stage.",
+				"d": 0,
+				"v": "grep -qF \"s: 'x3'\" src/lib/design.ts",
+				"t": "grep -qF 'visit the live site ↗' src/lib/components/Lightbox.svelte && grep -qF 'pc.b' src/lib/components/Lightbox.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"page": {
+		"s": "the home page sells both",
+		"d": 0,
+		"c": {
+			"prices_software": {
+				"s": "software has prices.\n1. append 'website' and 'web app' to `prices` from deck §prices.\n2. the price grid shows four columns at lg (two rows of four).\n3. start form chips = every prices t, then 'something else' (the hard-coded 'website' goes).\n4. the textarea placeholder follows deck §start form.",
+				"d": 0,
+				"t": "grep -qF \"t: 'web app'\" src/lib/design.ts && grep -qF 'booking site for my salon' src/routes/+page.svelte && grep -qF 'lg:grid-cols-4' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"hero": {
+				"s": "one hero for every visitor, saying both.\n1. hero copy from deck §hero; only the gold button and money differ by data.g.\n2. the hero is text only: remove the three-card fan (fan, stack, its markup and its open call).\n3. the work h2 and side text from deck §work.\nlook at / at 1440 and 390 for both ?c=ng and ?c=us.",
+				"d": 0,
+				"t": "grep -qF 'to <span class=\"text-accent\">the app.</span>' src/routes/+page.svelte && ! grep -qF 'const fan' src/routes/+page.svelte && grep -qF 'every piece here hides an idea.' src/routes/+page.svelte && ! grep -qF 'your new homepage' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"drop_web": {
+				"s": "the iframe section is gone; software lives in the wall.\n1. remove the #web section, `sites`, `frame`, the Modal import and src/lib/components/Modal.svelte, the nav 'websites' link and the .frame-view css.\n2. remove `site_price` from src/lib/design.ts; nothing reads it now.",
+				"d": 0,
+				"v": "grep -qF 'id=\"web\"' src/routes/+page.svelte",
+				"t": "! grep -qF 'id=\"web\"' src/routes/+page.svelte && test ! -f src/lib/components/Modal.svelte && ! grep -rqF 'site_price' src && ! grep -qF 'frame-view' src/routes/layout.css && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"how_faq": {
+				"s": "process and questions cover sites and apps.\n1. how it works h2 and the four steps from deck §how it works.\n2. faqs from deck §questions, in that order.",
+				"d": 0,
+				"t": "grep -qF 'who owns the code?' src/routes/+page.svelte && grep -qF 'see it early' src/routes/+page.svelte && grep -qF 'from message to finished work' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"contact_who": {
+				"s": "a real person stands behind the studio.\nunder the abuja clock in #contact: the line and two links from deck §contact, text-sm text-fg-muted, links underline on hover, new tab, rel noopener noreferrer.",
+				"d": 0,
+				"t": "grep -qF '54 is run by gold hogan in abuja.' src/routes/+page.svelte && grep -qF 'https://calm.apexlinks.org/144126' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"nav_mobile": {
+				"s": "phones get a nav.\nnav links from deck §nav: work and prices show at every width, how it works from md. at 390 wide the pill stays on one line with no overflow; shrink the gaps below md if needed, never the pill text.\nlook at 390 and 1440.",
+				"d": 0,
+				"t": "! grep -qF 'href=\"#web\"' src/routes/+page.svelte && grep -qF 'href=\"#prices\"' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"share": {
+		"s": "the link preview shows both",
+		"d": 0,
+		"c": {
+			"og_image": {
+				"s": "static/og.jpg shows software and design.\nscripts/og.py (python3 -I, PIL): 1200x630 jpg, quality 88, background #0b0a08. four cells 576x291 at (16,16), (608,16), (16,323), (608,323), corner radius 16: x3-0, e4-coach-0, watch-worthy-0, chicklet-0 from static/work, each centre-cropped to fill its cell. overwrite static/og.jpg. package.json script og = 'python3 -I scripts/og.py'.\nlook at the result.",
+				"d": 0,
+				"v": "test -f static/work/x3-0.webp",
+				"t": "test -f scripts/og.py && file static/og.jpg | grep -qF '1200x630' && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"pieces": {
+		"s": "every piece gets its own page at /work/{s}",
+		"d": 0,
+		"c": {
+			"layout_g": {
+				"s": "data.g moves to the layout so every page has it.\n1. create src/routes/+layout.server.ts with the exact load and `// g = …` comment from src/routes/+page.server.ts.\n2. delete src/routes/+page.server.ts. +page.svelte keeps reading data.g.",
+				"d": 0,
+				"v": "test -f src/routes/+page.server.ts",
+				"t": "test -f src/routes/+layout.server.ts && test ! -e src/routes/+page.server.ts && grep -qF 'cf-ipcountry' src/routes/+layout.server.ts && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"head_meta": {
+				"s": "the home page owns its head, with the new words.\n1. move every tag in the <svelte:head> of src/routes/+layout.svelte except the favicon link into a <svelte:head> in src/routes/+page.svelte.\n2. title, description, og:title, og:description, og:image:alt from deck §meta. add <link rel=\"canonical\" href=\"https://54.apexlinks.org/\">.\n3. the layout keeps only the favicon and drops its `work` import.",
+				"d": 0,
+				"t": "! grep -qF 'og:' src/routes/+layout.svelte && grep -qF '54 · design and software studio' src/routes/+page.svelte && grep -qF 'rel=\"canonical\"' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"ask_href": {
+				"s": "one owner for the 'want one like this?' link.\n1. src/lib/design.ts: export function ask(t: string, g: boolean), importing p from $lib/data, returning the exact two hrefs Lightbox.svelte builds today (whatsapp when g, else mailto), quoting t.\n2. the lightbox pill uses ask(pc.t, g): one <a> replaces its {#if g} pair.",
+				"d": 0,
+				"t": "grep -qF 'export function ask(' src/lib/design.ts && grep -qF 'ask(pc.t, g)' src/lib/components/Lightbox.svelte && test \"$(grep -c 'want one like this' src/lib/components/Lightbox.svelte)\" -eq 1 && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"kind_price": {
+				"s": "each design kind names the price it sells.\nin `kinds`, key p = the t of its prices entry: print 'flyer or poster', logo 'logo', identity 'brand kit'. app gets none: an app tile never shows a starting price. extend the key comment with `p = the prices entry this kind sells`.",
+				"d": 0,
+				"t": "grep -qF \"p: 'flyer or poster'\" src/lib/design.ts && grep -qF 'p = the prices entry' src/lib/design.ts && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"piece_load": {
+				"s": "the route turns a slug into its piece.\nsrc/routes/work/[s]/+page.ts: load finds the `work` entry whose s equals params.s; no match is error(404) from @sveltejs/kit. returns { w } with `// w = the piece`. no prerender: data.g depends on the request.",
+				"d": 0,
+				"t": "test -f 'src/routes/work/[s]/+page.ts' && grep -q 'error(404' 'src/routes/work/[s]/+page.ts' && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"piece_head": {
+				"s": "src/routes/work/[s]/+page.svelte carries the piece's own preview (body can be a bare h1 for now).\n1. <title> and og:title '{t} · 54'. description and og:description d.\n2. og:image https://54.apexlinks.org/work/{s}-{lead}.webp, lead = (o ?? [0])[0]; og:image:width/height from i[lead]; og:image:alt t.\n3. og:url and canonical https://54.apexlinks.org/work/{s}. og:type website. twitter:card summary_large_image.",
+				"d": 0,
+				"v": "test -f 'src/routes/work/[s]/+page.ts'",
+				"t": "grep -qF 'og:image' 'src/routes/work/[s]/+page.svelte' && grep -qF 'canonical' 'src/routes/work/[s]/+page.svelte' && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"piece_body": {
+				"s": "the piece page body, from existing classes.\n1. top bar like the home nav: '54' → /, gold pill 'start a project' → /#start.\n2. h1 t sized like the home h2s; c in text-fg-muted; d in text-fg-secondary max-w-xl; b in font-mono text-xs text-fg-muted when present.\n3. every slide in order in a max-w-[1200px] column, rounded-[var(--radius-tile)] border border-border, width/height from i; the first eager with fetchpriority high.\n4. one row: gold 'want one like this? →' (ask(t, data.g)); 'visit the live site ↗' when u; '{price t} from {money}' when the kind has p; ghost 'see all {work.length} pieces' → /#work.\nlook at /work/x3 and /work/oktai at 1440 and 390.",
+				"d": 0,
+				"v": "grep -qF 'export function ask(' src/lib/design.ts",
+				"t": "grep -qF 'ask(' 'src/routes/work/[s]/+page.svelte' && grep -qF 'visit the live site ↗' 'src/routes/work/[s]/+page.svelte' && grep -qF '/#work' 'src/routes/work/[s]/+page.svelte' && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			},
+			"lightbox_link": {
+				"s": "visitors can reach and share each piece's page.\nin src/lib/components/Lightbox.svelte the title inside the h3 becomes <a href=\"/work/{pc.s}\">, colour inherited, underline on hover. nothing else changes.\ntests/site.e2e.ts: /work/x3 answers with the x3 h1 and the 'x3 · 54' title; /work/nope shows the 404.",
+				"d": 0,
+				"v": "test -f 'src/routes/work/[s]/+page.svelte'",
+				"t": "grep -qF 'href=\"/work/{pc.s}\"' src/lib/components/Lightbox.svelte && grep -qF '/work/nope' tests/site.e2e.ts && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"speed": {
+		"s": "lighter on phones",
+		"d": 0,
+		"c": {
+			"small_thumbs": {
+				"s": "phones download small thumbnails.\n1. scripts/thumbs.sh: for every static/work/*-t.webp, cwebp -q 80 -resize 480 0 into {s}-s.webp. package.json script thumbs = 'sh scripts/thumbs.sh'. run it.\n2. wall tiles: src /work/{s}-t.webp with srcset '/work/{s}-s.webp 480w, /work/{s}-t.webp 960w' and sizes '(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw'.\n3. only the first 4 tiles load eager; the rest lazy.",
+				"d": 0,
+				"t": "test \"$(ls static/work/*-s.webp | wc -l)\" -eq 20 && grep -qF -- '-s.webp 480w' src/routes/+page.svelte && pnpm lint && rm -rf .svelte-kit/output .svelte-kit/cloudflare .svelte-kit/cloudflare-tmp && pnpm exec svelte-kit sync && pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error && pnpm build && pnpm exec e2e run"
+			}
+		}
+	},
+	"live": {
+		"s": "production serves the new site after the last push. nothing to build: poll for up to 5 minutes. if it fails, open the url with ab-1440fl and read what it serves before you block.",
+		"d": 0,
+		"t": "for i in $(seq 1 30); do curl -sf https://54.apexlinks.org/ | grep -qF '54 · design and software studio' && curl -sf https://54.apexlinks.org/work/x3 | grep -qF 'x3 · 54' && exit 0; sleep 10; done; exit 1"
+	}
+}
